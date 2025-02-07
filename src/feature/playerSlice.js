@@ -1,23 +1,32 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 
-const initialState = {
-    players: []
-}
+const initialStatePlayer = {
+    players: [],
+};
 
-
+// Player slice
 const playerSlice = createSlice({
-    name: "player",
-    initialState,
+    name: 'player',
+    initialState: initialStatePlayer,
     reducers: {
-        play: (state, action) => { },
-        pause: (state, action) => { },
-        volume: (state, action) => { },
-        previousStation: (state, action) => { },
-        nextStation: (state, action) => { },
-    }
-})
+        play: (state, action) => {
+            // Add logic for play action
+        },
+        pause: (state, action) => {
+            // Add logic for pause action
+        },
+        volume: (state, action) => {
+            // Add logic for volume action
+        },
+        previousStation: (state, action) => {
+            // Add logic for previousStation action
+        },
+        nextStation: (state, action) => {
+            // Add logic for nextStation action
+        },
+    },
+});
 
 
 export const { play, pause, volume, previousStation, nextStation } = playerSlice.actions
-const playerReducer = playerSlice.reducer
-export default playerReducer
+export default playerSlice.reducer;

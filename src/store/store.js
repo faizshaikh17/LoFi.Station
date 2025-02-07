@@ -1,7 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import todoSlice from "../feature/slice";
+import { configureStore } from '@reduxjs/toolkit';
+import todoSlice from '../feature/slice'
+import playerSlice from '../feature/playerSlice'
+
 
 const store = configureStore({
-    reducer: todoSlice
-})
-export default store
+    reducer: {
+        todo: todoSlice,
+        player: playerSlice,
+    }
+});
+
+export default store;

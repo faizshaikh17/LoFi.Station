@@ -7,7 +7,7 @@ function Todo() {
     const [isTodoEditable, setIsTodoEditable] = useState(null)
 
     const dispatch = useDispatch();
-    const todos = useSelector((state) => state.todos)
+    const todos = useSelector((state) => state.todo.todos)
     const [todoCompleted, setTodoCompleted] = useState(null);
     // const todo = todos.map((todo) => { todo.id === isTodoEditable ? "" : "" })
 

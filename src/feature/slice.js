@@ -1,28 +1,59 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from '@reduxjs/toolkit';
 
-const initialState = {
-    todos: []
-}
+// Initial state for the todo slice
+const initialStateTodo = {
+    todos: [],
+};
 
-
+// Todo slice
 const todoSlice = createSlice({
     name: 'todo',
-    initialState,
+    initialState: initialStateTodo,
     reducers: {
         addTodo: (state, action) => {
-            console.log('25')
             const todo = {
                 id: nanoid(),
-                text: action.payload
-            }
-            state.todos.push(todo)
+                text: action.payload,
+            };
+            state.todos.push(todo);
         },
         deleteTodo: (state, action) => {
-            state.todos = state.todos.filter((todo) => (todo.id !== action.payload))
+            state.todos = state.todos.filter((todo) => todo.id !== action.payload);
         },
-    }
-})
+    },
+});
 
+// Initial state for the player slice
+const initialStatePlayer = {
+    players: [],
+};
+
+// Player slice
+const playerSlice = createSlice({
+    name: 'player',
+    initialState: initialStatePlayer,
+    reducers: {
+        play: (state, action) => {
+            // Add logic for play action
+        },
+        pause: (state, action) => {
+            // Add logic for pause action
+        },
+        volume: (state, action) => {
+            // Add logic for volume action
+        },
+        previousStation: (state, action) => {
+            // Add logic for previousStation action
+        },
+        nextStation: (state, action) => {
+            // Add logic for nextStation action
+        },
+    },
+});
+
+// Export actions
 export const { addTodo, deleteTodo } = todoSlice.actions;
-const todoReducer = todoSlice.reducer
-export default todoReducer
+export const { play, pause, volume, previousStation, nextStation } = playerSlice.actions;
+
+export default todoSlice.reducer;
+
