@@ -1,7 +1,8 @@
 import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { Outlet } from 'react-router-dom'
+// import { Outlet } from 'react-router-dom'
+import Player from './components/Player'
 import Hero from './components/Hero'
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
       <div className='min-h-screen w-full flex flex-wrap content-between fixed bg-[url(src/assets/gif/gif2.gif)] bg-no-repeat bg-cover bg-center'>
         <div className='w-full block text-2xl'>
           <Header />
-          <Outlet />
+          {/* <Outlet /> */}
+          <Player />
           <Footer />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 
 const initialStatePlayer = {
-    players: [],
+    players: [{id:"",song:""}],
 };
 
 // Player slice
@@ -10,7 +10,10 @@ const playerSlice = createSlice({
     initialState: initialStatePlayer,
     reducers: {
         play: (state, action) => {
-            // Add logic for play action
+            // logic for play action
+            const station = {
+                
+            }
         },
         pause: (state, action) => {
             // Add logic for pause action
