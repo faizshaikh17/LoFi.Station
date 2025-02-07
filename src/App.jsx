@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className='min-h-screen w-full flex flex-wrap content-between fixed bg-[url(https://i.pinimg.com/originals/68/31/45/6831454cf213ed7ffa541fe666fa9cf8.gif)] bg-no-repeat bg-cover bg-center'>
+      <div className='min-h-screen w-full flex flex-wrap content-between fixed bg-[url(src/assets/gif/gif2.gif)] bg-no-repeat bg-cover bg-center'>
         <div className='w-full block text-2xl'>
           <Header />
           <Outlet />
@@ -17,3 +17,4 @@ function App() {
 }
 
 export default App
+// https://i.pinimg.com/originals/68/31/45/6831454cf213ed7ffa541fe666fa9cf8.gif
