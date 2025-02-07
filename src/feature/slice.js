@@ -1,8 +1,11 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 import { act } from 'react'
+
 const initialState = {
-    todos: [{ id: 1, text: "17" }]
+    todos: [],
+    players: []
 }
+
 
 const todoSlice = createSlice({
     name: 'todo',
@@ -19,6 +22,14 @@ const todoSlice = createSlice({
         deleteTodo: (state, action) => {
             state.todos = state.todos.filter((todo) => (todo.id !== action.payload))
         },
+    }
+})
+
+const playerSlice = createSlice({
+    name: "nowPlaying",
+    initialState,
+    reducers: {
+
     }
 })
 

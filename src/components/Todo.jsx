@@ -21,12 +21,12 @@ function Todo() {
 
     return (
         <>
-            <div className='flex absolute top-10 -right-2 bg-[#171717] flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-white '>
+            <div className='flex bg-[#171717] absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-white '>
                 <form onSubmit={add}
                     className=" flex justify-between" >
                     <input
                         type="text"
-                        className={`bg-[#171717]  h-9 focus-visible:outline-none border-1  text-white m-1 px-4 `}
+                        className={`bg-[#171717] text-sm h-9  focus-visible:outline-none border-1  text-white m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -34,7 +34,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="text-black bg-[#c9c9c9] h-9 border-1   px-4 m-1  hover:bg-[#c9c9c0]"
+                        className="bg-[#eeeeea] text-black text-sm hover:bg-[#c9c9c9] h-9 px-4 m-1"
                     >
                         Add
                     </button>
@@ -43,7 +43,7 @@ function Todo() {
                 <ul className="space-y-2 h-48 overflow-y-auto w-full mt-4">
                     {todos.map((todo) => (
                         <li key={todo.id}>
-                            <div className='flex justify-between items-center px-2'>
+                            <div className='flex justify-between items-center px-4'>
                                 <div className='flex items-center' >
                                     <checkbox
 
@@ -58,13 +58,13 @@ function Todo() {
                                         }
                                     />
 
-                                    <span className={`text-white p-2  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
+                                    <span className={`text-white text-sm p-2  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
                                 </div>
 
                                 <div className=''>
                                     <button
                                         onClick={() => dispatch(deleteTodo(todo.id))}
-                                    // className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
+                                        className="px-2 h-9 hover:bg-[#c9c9c9]"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
