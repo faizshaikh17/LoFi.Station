@@ -7,7 +7,7 @@ function Header() {
     const [todotoggle, setTodoToggle] = useState(false)
 
     return (
-        <div className='flex justify-between m-8   p-2'>
+        <header className='flex justify-between m-8 p-2'>
             <Card />
             {/* text-[#FFFC01] */}
             <div className='flex justify-between  text-[#73e7e7] w-46'>
@@ -25,7 +25,7 @@ function Header() {
                     {todotoggle && <Todo />}
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 

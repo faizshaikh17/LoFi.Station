@@ -8,25 +8,23 @@ function Todo() {
 
     const dispatch = useDispatch();
     const todos = useSelector((state) => state.todos)
-    const todo = todos.map((todo) => { todo.id == isTodoEditable })
     const [todoCompleted, setTodoCompleted] = useState(null);
+    // const todo = todos.map((todo) => { todo.id === isTodoEditable ? "" : "" })
 
     const add = (e) => {
         e.preventDefault();
         dispatch(addTodo(input))
         setInput("")
     }
-
-
-
+    console.log(todos)
     return (
         <>
-            <div className='flex bg-[#171717] absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-white '>
+            <div className='flex bg-[#171717] border-[#73e7e7] border-1 absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-[#73e7e7] '>
                 <form onSubmit={add}
                     className=" flex justify-between" >
                     <input
                         type="text"
-                        className={`bg-[#171717] text-sm h-9  focus-visible:outline-none border-1  text-white m-1 px-4 `}
+                        className={`bg-[#171717] text-sm h-9  focus-visible:outline-none border-white border-1  text-[#73e7e7] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -58,13 +56,13 @@ function Todo() {
                                         }
                                     />
 
-                                    <span className={`text-white text-sm p-2  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
+                                    <span className={`text-[#73e7e7] text-sm p-2  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
                                 </div>
 
                                 <div className=''>
                                     <button
                                         onClick={() => dispatch(deleteTodo(todo.id))}
-                                        className="px-2 h-9 hover:bg-[#c9c9c9]"
+                                        className="px-2 h-9 hover:bg-[#73e7e7]"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

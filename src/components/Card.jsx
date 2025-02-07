@@ -8,7 +8,6 @@ function Card() {
     useEffect(() => {
         setInterval(() => {
 
-            const date = new Date(Date.now());
             const hours = (new Date(Date.now()).getHours()).toString().padStart("2", 0)
             const minutes = (new Date(Date.now()).getMinutes()).toString().padStart("2", 0)
             setTime(`${hours}:${minutes}`)
@@ -24,8 +23,8 @@ function Card() {
     return (
         <div className={`flex-col justify-items-start space-y-3 text-[#73e7e7] `}>
             <h1 className='text-xl'>Now Playing: {nowPlaying}</h1>
-            <h1 className='text-4xl' > {time} </h1>
-            <h1 className='flex items-center text-2xl'>Now or never,<img src="src/assets/pixel-heart.png" alt="" width={25} height={25} /></h1>
+            <h1 className='text-4xl' >{time} </h1>
+            <h1 className='flex items-center text-2xl'>Now or never,buddy</h1>
         </div>
     )
 }
