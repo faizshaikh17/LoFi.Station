@@ -9,13 +9,13 @@ function Player() {
     const [nowPlaying, setNowPlaying] = useState("");
     const [isPlaying, setIsPlaying] = useState(false);
     const [volume, setVolume] = useState(100);
-    const imageNumber = useSelector((state) => state.image)
+    const imageNumber = useSelector((state) => { state.player.image })
+    // console.log(imageNumber)
 
     const handlePlay = () => {
         // const VideoId = Math.floor(Math.random() * 10) + 1
         // const currentVideoId = 0
         if (!isPlaying) {
-            // console.log(currentVideoId)
             dispatch(togglePlayPause(isPlaying))
             dispatch(setVolume())
         }

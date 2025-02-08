@@ -10,7 +10,7 @@ function Header() {
         <header className='flex justify-between m-8 p-2'>
             <Card />
             {/* text-[#FFFC01] */}
-            <div className='flex justify-between  text-[#73e7e7] w-46'>
+            <div className='flex justify-between  text-[#73e7e7] w-40'>
                 <a className='' href="https://github.com/faizshaikh17/lofi-station">
                     <Github size={26} />
                 </a>
