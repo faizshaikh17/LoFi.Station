@@ -13,7 +13,6 @@ function App() {
           <Header />
           {/* <Outlet /> */}
           <Player />
-          <Footer />
         </div>
       </div>
     </>
