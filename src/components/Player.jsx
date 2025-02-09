@@ -2,23 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from './Footer'
 // import { Play as playLogo } from 'lucide-react';
-import { togglePlayPause, setVolume, setImage, setVideo } from '../feature/playerSlice'
+import { togglePlayPause } from '../feature/playerSlice'
 
 function Player() {
     const dispatch = useDispatch();
-    const [nowPlaying, setNowPlaying] = useState("");
     const [isPlaying, setIsPlaying] = useState(false);
-    const [volume, setVolume] = useState(100);
-    const imageNumber = useSelector((state) => { state.player.image })
-    // console.log(imageNumber)
-
+    const current = useSelector((state) => state.player.isPlaying)
+    console.log(isPlaying)
+    console.log(current)
     const handlePlay = () => {
         // const VideoId = Math.floor(Math.random() * 10) + 1
-        // const currentVideoId = 0
-        if (!isPlaying) {
             dispatch(togglePlayPause(isPlaying))
-            dispatch(setVolume())
-        }
 
     }
 

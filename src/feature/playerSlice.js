@@ -4,7 +4,7 @@ const initialStatePlayer = {
     players: [{
         isPlaying: false,
         image: 1,
-        volume: 100,
+        volume: 80,
         loading: true,
         currentVideoId: 0,
         videoIds: [
@@ -31,6 +31,7 @@ const initialStatePlayer = {
             "You Say Run",
             "Fight Demons within you",
         ],
+
     }],
 };
 
@@ -40,25 +41,21 @@ const playerSlice = createSlice({
     initialState: initialStatePlayer,
     reducers: {
         togglePlayPause: (state, action) => {
-            isPlaying: !state.isPlaying
+            state.isPlaying = !action.payload
         },
-        setVolume: (state, action) => {
-            volume: state.volume
-        },
-        setImage: (state, action) => {
-            image: Math.floor(Math.random() * 10) + 1
-        },
-        setVideo: (state, action) => {
-            currentVideoId = Math.floor(Math.random() * 10) + 1
-            const video = videoIds[currentVideoId]
-            const nowPlaying = videoNames[currentVideoId]
-        }
-
+        setPlaying: () => { },
+        setVolume: () => { },
+        setImage: () => { },
+        nextVideo: () => { },
+        setVideo: () => { },
+        previousVideo: () => { },
+        setLoading: () => { },
+        applyVolumeToPlayer: () => { }
     },
 });
 
 
-export const { togglePlayPause,setVolume,setImage,setVideo } = playerSlice.actions
+export const { togglePlayPause, setVolume, setImage, setVideo } = playerSlice.actions
 export default playerSlice.reducer;
 
 
