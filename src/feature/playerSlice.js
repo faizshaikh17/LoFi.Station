@@ -8,16 +8,16 @@ const initialStatePlayer = {
         loading: true,
         currentVideoId: 0,
         videoIds: [
-            "POh92y6H2EqX9CR1",
-            "Bi4XXeUjNeaNEMb1",
-            "9Lmq-Z2FARKzcceP",
-            "5akmckpaopOF7FTW",
-            "oDTzhvy2IhXf9IoS",
-            "LJmDeehWl3BuL9Sj",
-            "jfj1WJHzC4LL5sG1",
-            "ttcNaVqNLr9yNTBB",
-            "T0tLCQlgMxyGQulz",
-            "kcl0NBwH51QnkXq3",
+            "xmLszyYZdiw?si=POh92y6H2EqX9CR1",
+            "HGl75kurxok?si=Bi4XXeUjNeaNEMb1",
+            "8GpgadrMliU?si=9Lmq-Z2FARKzcceP",
+            "Sia4qWv_reM?si=5akmckpaopOF7FTW",
+            "XScfHk5CP0s?si=oDTzhvy2IhXf9IoS",
+            "bq7caidfUts?si=NA08Ou1j2qYXLbAf",
+            "A7uNvvAKsYU?si=jfj1WJHzC4LL5sG1",
+            "7J54GyI18fU?si=ttcNaVqNLr9yNTBB",
+            "3SDBTVcBUVs?si=T0tLCQlgMxyGQulz",
+            "J43mZ3F92T4?si=kcl0NBwH51QnkXq3",
         ],
         videoNames: [
             "Naruto-Chill Lofi",
@@ -43,9 +43,17 @@ const playerSlice = createSlice({
         togglePlayPause: (state, action) => {
             state.isPlaying = !action.payload
         },
-        setPlaying: () => { },
-        setVolume: () => { },
-        setImage: () => { },
+        setPlaying: (state, action) => { state.isPlaying },
+        setVolume: (state, action) => {
+            state.volume = action.payload
+        },
+        setImage: (state, action) => {
+            do {
+                const newImage = Math.floor(Math.random() * 10) + 1
+            } while (newImage === state.image) {
+                return { image: newImage };
+            }
+        },
         nextVideo: () => { },
         setVideo: () => { },
         previousVideo: () => { },
@@ -55,7 +63,7 @@ const playerSlice = createSlice({
 });
 
 
-export const { togglePlayPause, setVolume, setImage, setVideo } = playerSlice.actions
+export const { togglePlayPause, setPlaying, setImage } = playerSlice.actions
 export default playerSlice.reducer;
 
 
@@ -64,7 +72,7 @@ export default playerSlice.reducer;
 // https://youtu.be/8GpgadrMliU?si=9Lmq-Z2FARKzcceP
 // https://youtu.be/Sia4qWv_reM?si=5akmckpaopOF7FTW
 // https://youtu.be/XScfHk5CP0s?si=oDTzhvy2IhXf9IoS
-// https://www.youtube.com/live/-pNJ0Z0Jzu8?si=LJmDeehWl3BuL9Sj
+// https://youtu.be/bq7caidfUts?si=NA08Ou1j2qYXLbAf
 // https://youtu.be/A7uNvvAKsYU?si=jfj1WJHzC4LL5sG1
 // https://youtu.be/7J54GyI18fU?si=ttcNaVqNLr9yNTBB
 // https://youtu.be/3SDBTVcBUVs?si=T0tLCQlgMxyGQulz
