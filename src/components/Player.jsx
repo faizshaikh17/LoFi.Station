@@ -9,7 +9,7 @@ function Player() {
     const playerRef = useRef(null);
     const preFetchRef = useRef(null);
     const { isPlaying, image, volume, currentVideoId, videoIds } = useSelector((state) => (state.player))
-    console.log(isPlaying)
+    console.log(isPlaying, volume)
 
     useEffect(() => {
 
@@ -37,6 +37,21 @@ function Player() {
         }
         dispatch(togglePlayPause())
     }
+
+    const handleSetVolume = () => {
+        if (playerRef.current) {
+            const iframe = playerRef.current.contentWindow;
+            if (iframe) {
+                iframe.postMessage(
+                    `{"event":"command","func":"${volume}","args":""}`,
+                    "*"
+                );
+            }
+        }
+        dispatch(setVolume())
+    }
+
+    
 
     return (
         <>
@@ -70,7 +85,12 @@ function Player() {
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-4 m-3"
                     >
-                        <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range" name="" id="" />
+                        <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range"
+                            onChange={(e) => {
+                                handleSetVolume()
+                                dispatch(setVolume(e.target.value))
+                            }}
+                        />
                     </button>
 
                     <button
@@ -78,7 +98,7 @@ function Player() {
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
                     >
-                        <span>{"<<Prev"}</span>
+                        <span>{"<< Prev"}</span>
                     </button>
 
                     <button
@@ -86,7 +106,7 @@ function Player() {
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
                     >
-                        <span>{"Next>>"}</span>
+                        <span>{"Next >>"}</span>
                     </button>
                 </div>
                 <Footer />

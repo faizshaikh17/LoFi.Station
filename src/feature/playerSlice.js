@@ -47,12 +47,12 @@ const playerSlice = createSlice({
             state.volume = action.payload
         },
         nextVideo: (state, action) => {
-            state.currentVideoId = currentVideoId >= videoIds.length - 1 ? 0 : currentVideoId + 1
+            state.currentVideoId = state.currentVideoId >= state.videoIds.length - 1 ? 0 : state.currentVideoId + 1
             state.volume = 100
             state.isPlaying = true
         },
         previousVideo: (state, action) => {
-            state.currentVideoId = currentVideoId === 0 ? currentVideoId === videoIds.length - 1 : currentVideoId - 1
+            state.currentVideoId = state.currentVideoId === 0 ? state.currentVideoId === state.videoIds.length - 1 : state.currentVideoId - 1
             state.volume = 100
             state.isPlaying = true
         },
