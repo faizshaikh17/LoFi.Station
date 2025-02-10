@@ -21,7 +21,7 @@ function Card() {
     // ${lightEffect ? "text-[#FFFC01]" : "text-[#73E7F7]"}
 
     return (
-        <div className={`flex-col justify-items-start space-y-3 text-[#73e7e7] `}>
+        <div className={`flex-col justify-items-start space-y-3 hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] `}>
             <h1 className='text-xl'>Now Playing: {nowPlaying}</h1>
             <h1 className='text-4xl' >{time} </h1>
             <h1 className='flex items-center text-2xl'>Now or never,buddy</h1>

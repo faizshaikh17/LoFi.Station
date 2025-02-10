@@ -15,7 +15,7 @@ function Todo() {
         dispatch(addTodo(input))
         setInput("")
     }
-    
+
     return (
         <>
             <div className='flex bg-[#171717] border-[#73e7e7] border-1 absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-[#73e7e7] '>
@@ -42,10 +42,10 @@ function Todo() {
                         <li key={todo.id}>
                             <div className='flex justify-between items-center px-4'>
                                 <div className='flex items-center' >
-                                    <checkbox
+                                    <input
 
                                         type="checkbox"
-                                        className='peer h-4 w-4 border focus-visible:outline-none text-white '
+                                        className='default:ring-4 h-4 w-4 text-white '
                                         onClick={() => {
                                             setTodoCompleted(todo.id)
                                             if (todoCompleted === todo.id) {
