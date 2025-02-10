@@ -1,23 +1,41 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from './Footer'
-// import { Play as playLogo } from 'lucide-react';
-import { togglePlayPause } from '../feature/playerSlice'
+import { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo } from '../feature/playerSlice'
 
 function Player() {
+
     const dispatch = useDispatch();
-    const [isPlaying, setIsPlaying] = useState(false);
-    const current = useSelector((state) => state.player.isPlaying)
-    // console.log(isPlaying)
+    const playerRef = useRef(null);
+    const preFetchRef = useRef(null);
+    const { isPlaying, image, volume, currentVideoId, videoIds } = useSelector((state) => (state.player))
+    console.log(isPlaying)
 
-    const handlePlay = () => {
-        // const VideoId = Math.floor(Math.random() * 10) + 1
-        dispatch(togglePlayPause(isPlaying))
-        if (current) { }
-    }
+    useEffect(() => {
 
-    if (isPlaying) {
-        var id = "3SDBTVcBUVs?si=T0tLCQlgMxyGQulz"
+        const script = document.createElement('script');
+        script.src = "https://www.youtube.com/iframe_api";
+        script.async = true
+        document.body.appendChild(script)
+
+        return () => document.body.removeChild(script)
+    }, []);
+
+
+
+    // Play/Pause toggle func 
+    const handleTogglePlayPause = () => {
+        if (playerRef.current) {
+            const iframe = playerRef.current.contentWindow;
+            if (iframe) {
+                const action = isPlaying ? "pauseVideo" : "playVideo"
+                iframe.postMessage(
+                    `{"event":"command","func":"${action}","args":""}`,
+                    "*"
+                );
+            }
+        }
+        dispatch(togglePlayPause())
     }
 
     return (
@@ -35,14 +53,13 @@ function Player() {
                         title="Embedded youtube"
                     />
                 </div> */}
-                <div className='flex items-end h-[55rex] p-4 px-20'>
+                <div className='flex items-end  p-4 px-20'>
                     <button
                         type="submit"
                         // disabled={!input}
                         className="bg-[#171717] text-[#73e7e7] text-sm w-17 bg-center hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] hover:bg-[#222325] h-9 px-4 m-3"
                         onClick={() => {
-                            setIsPlaying((prev) => !prev)
-                            handlePlay()
+                            handleTogglePlayPause()
                         }}
                     >
                         {isPlaying ? "Pause" : "Play"}
@@ -53,7 +70,7 @@ function Player() {
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-4 m-3"
                     >
-                        <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]'  type="range" name="" id="" />
+                        <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range" name="" id="" />
                     </button>
 
                     <button
@@ -61,7 +78,7 @@ function Player() {
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
                     >
-                        Prev
+                        <span>{"<<Prev"}</span>
                     </button>
 
                     <button
@@ -69,7 +86,7 @@ function Player() {
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
                     >
-                        Next
+                        <span>{"Next>>"}</span>
                     </button>
                 </div>
                 <Footer />

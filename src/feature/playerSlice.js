@@ -41,29 +41,36 @@ const playerSlice = createSlice({
     initialState: initialStatePlayer,
     reducers: {
         togglePlayPause: (state, action) => {
-            state.isPlaying = !action.payload
+            state.isPlaying = !state.isPlaying
         },
-        setPlaying: (state, action) => { state.isPlaying },
         setVolume: (state, action) => {
             state.volume = action.payload
         },
-        setImage: (state, action) => {
-            do {
-                const newImage = Math.floor(Math.random() * 10) + 1
-            } while (newImage === state.image) {
-                return { image: newImage };
-            }
+        nextVideo: (state, action) => {
+            state.currentVideoId = currentVideoId >= videoIds.length - 1 ? 0 : currentVideoId + 1
+            state.volume = 100
+            state.isPlaying = true
         },
-        nextVideo: () => { },
-        setVideo: () => { },
-        previousVideo: () => { },
-        setLoading: () => { },
-        applyVolumeToPlayer: () => { }
+        previousVideo: (state, action) => {
+            state.currentVideoId = currentVideoId === 0 ? currentVideoId === videoIds.length - 1 : currentVideoId - 1
+            state.volume = 100
+            state.isPlaying = true
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload
+        },
+        // setImage: (state, action) => {
+        //     do {
+        //         const newImage = Math.floor(Math.random() * 10) + 1
+        //     } while (newImage === state.image) {
+        //         return { image: newImage };
+        //     }
+        // },
     },
 });
 
 
-export const { togglePlayPause, setPlaying, setImage } = playerSlice.actions
+export const { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo } = playerSlice.actions
 export default playerSlice.reducer;
 
 
