@@ -8,8 +8,8 @@ function Player() {
     const dispatch = useDispatch();
     const playerRef = useRef(null);
     const preFetchRef = useRef(null);
-    const { isPlaying, image, volume, currentVideoId, videoIds } = useSelector((state) => (state.player))
-    console.log(isPlaying, volume)
+    const { isPlaying, image, volume, currentVideoId, videoIds, loading } = useSelector((state) => (state.player))
+    console.log(isPlaying, volume, loading, currentVideoId)
 
     useEffect(() => {
 
@@ -21,9 +21,6 @@ function Player() {
         return () => document.body.removeChild(script)
     }, []);
 
-
-
-    // Play/Pause toggle func 
     const handleTogglePlayPause = () => {
         if (playerRef.current) {
             const iframe = playerRef.current.contentWindow;
@@ -51,7 +48,40 @@ function Player() {
         dispatch(setVolume())
     }
 
-    
+    const handleVideoChange = (direction) => {
+        if (direction === "prev") {
+            dispatch(previousVideo());
+        } else {
+            dispatch(nextVideo());
+        }
+        dispatch(setLoading(true))
+
+        setTimeout(() => {
+            if (playerRef.current) {
+                const iframe = playerRef.current.contentWindow;
+                if (iframe) {
+                    iframe.postMessage(
+                        `{"event":"command","func":"playVideo","args":""},"*"`
+                    )
+                    setLoading(false);
+                }
+            }
+            if (preFetchRef.current) {
+                preFetchRef.current.src = ""
+            }
+        }, 1000)
+    }
+
+    const handlePrefetchRef = () => {
+        const nextId = currentVideoId === videoIds?.length - 1 ? 0 : currentVideoId + 1
+        if (preFetchRef.current) {
+            preFetchRef.current.src = `https://www.youtube.com/embed/${videoIds[nextId]}?enablejsapi=1`
+        }
+    }
+
+    useEffect(() => {
+        handlePrefetchRef()
+    }, [currentVideoId])
 
     return (
         <>
@@ -97,6 +127,7 @@ function Player() {
                         type="submit"
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
+                        onClick={handleVideoChange("prev")}
                     >
                         <span>{"<< Prev"}</span>
                     </button>
@@ -105,6 +136,7 @@ function Player() {
                         type="submit"
                         // disabled={!input}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
+                        onClick={handleVideoChange("next")}
                     >
                         <span>{"Next >>"}</span>
                     </button>

@@ -46,15 +46,15 @@ const playerSlice = createSlice({
         setVolume: (state, action) => {
             state.volume = action.payload
         },
-        nextVideo: (state, action) => {
-            state.currentVideoId = state.currentVideoId >= state.videoIds.length - 1 ? 0 : state.currentVideoId + 1
-            state.volume = 100
+        previousVideo: (state) => {
+            state.currentVideoId = state.currentVideoId === 0 ? state.currentVideoId === state.videoIds?.length - 1 : state.currentVideoId - 1
             state.isPlaying = true
+            state.volume = 100
         },
-        previousVideo: (state, action) => {
-            state.currentVideoId = state.currentVideoId === 0 ? state.currentVideoId === state.videoIds.length - 1 : state.currentVideoId - 1
-            state.volume = 100
+        nextVideo: (state) => {
+            state.currentVideoId = state.currentVideoId >= state.videoIds?.length - 1 ? 0 : state.currentVideoId + 1
             state.isPlaying = true
+            state.volume = 100
         },
         setLoading: (state, action) => {
             state.loading = action.payload
@@ -72,7 +72,6 @@ const playerSlice = createSlice({
 
 export const { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo } = playerSlice.actions
 export default playerSlice.reducer;
-
 
 // https://youtu.be/xmLszyYZdiw?si=POh92y6H2EqX9CR1
 // https://youtu.be/HGl75kurxok?si=Bi4XXeUjNeaNEMb1
