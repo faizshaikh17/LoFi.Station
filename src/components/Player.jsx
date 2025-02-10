@@ -63,7 +63,7 @@ function Player() {
                     iframe.postMessage(
                         `{"event":"command","func":"playVideo","args":""},"*"`
                     )
-                    setLoading(false);
+                    dispatch(setLoading(false))
                 }
             }
             if (preFetchRef.current) {
@@ -86,22 +86,22 @@ function Player() {
     return (
         <>
             <div className='flex  justify-between items-end'>
-                {/* <div className="video-responsive hidden">
+                <div className="video-responsive hidden">
                     <iframe
-                        // ref={playerRef}
+                        ref={playerRef}
                         width="853"
                         height="480"
-                        src={`https://www.youtube.com/${id}`}
+                        // src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1`}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
-                        onLoad={() => setLoading(false)}
+                        onLoad={() => dispatch(setLoading(false))}
                         title="Embedded youtube"
                     />
-                </div> */}
+                </div>
                 <div className='flex items-end  p-4 px-20'>
                     <button
                         type="submit"
-                        // disabled={!input}
+                        disabled={loading}
                         className="bg-[#171717] text-[#73e7e7] text-sm w-17 bg-center hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] hover:bg-[#222325] h-9 px-4 m-3"
                         onClick={() => {
                             handleTogglePlayPause()
@@ -112,10 +112,11 @@ function Player() {
 
                     <button
                         type="submit"
-                        // disabled={!input}
+                        disabled={loading}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-4 m-3"
                     >
                         <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range"
+                            disabled={loading}
                             onChange={(e) => {
                                 handleSetVolume()
                                 dispatch(setVolume(e.target.value))
@@ -125,7 +126,7 @@ function Player() {
 
                     <button
                         type="submit"
-                        // disabled={!input}
+                        disabled={loading}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
                         onClick={handleVideoChange("prev")}
                     >
@@ -134,7 +135,7 @@ function Player() {
 
                     <button
                         type="submit"
-                        // disabled={!input}
+                        disabled={loading}
                         className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
                         onClick={handleVideoChange("next")}
                     >
