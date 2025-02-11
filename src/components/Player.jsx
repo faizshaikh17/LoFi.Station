@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from './Footer'
-import { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo } from '../feature/playerSlice'
+import { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo, setImage } from '../feature/playerSlice'
 
 function Player() {
 
@@ -9,7 +9,7 @@ function Player() {
     const playerRef = useRef(null);
     const preFetchRef = useRef(null);
     const { isPlaying, image, volume, currentVideoId, videoIds, loading } = useSelector((state) => (state.player))
-    console.log(isPlaying, volume, loading, currentVideoId)
+    // console.log(isPlaying, volume, loading, currentVideoId)
 
     useEffect(() => {
 
@@ -39,8 +39,7 @@ function Player() {
             const iframeWindow = playerRef.current.contentWindow
             if (iframeWindow) {
                 iframeWindow.postMessage(`{
-                    "event":"command","func":"setVolume","args":${volume}
-                },"*"`)
+                    "event":"command","func":"setVolume","args":"${volume}"}`, "*")
             }
         }
     }
@@ -83,64 +82,66 @@ function Player() {
 
     return (
         <>
-            <div className='flex  justify-between items-end'>
-                <div className="video-responsive hidden">
-                    <iframe
-                        ref={playerRef}
-                        width="853"
-                        height="480"
-                        src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1`}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        onLoad={() => dispatch(setLoading(false))}
-                        title="Embedded youtube"
-                    />
-                </div>
-                <div className='flex items-end  p-4 px-20'>
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="bg-[#171717] text-[#73e7e7] text-sm w-17 bg-center hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] hover:bg-[#222325] h-9 px-4 m-3"
-                        onClick={() => {
-                            handleTogglePlayPause()
-                        }}
-                    >
-                        {isPlaying ? "Pause" : "Play"}
-                    </button>
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-4 m-3"
-                    >
-                        <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range"
-                            disabled={loading}
-                            onChange={(e) => {
-                                handleSetVolume()
-                                dispatch(setVolume(e.target.value))
-                            }}
+            <div className='flex items-end justify-start fixed w-full  h-[55rex]'>
+                <div className='flex  justify-between items-end'>
+                    <div className="video-responsive hidden">
+                        <iframe
+                            ref={playerRef}
+                            width="853"
+                            height="480"
+                            src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1;start=20`}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            onLoad={() => dispatch(setLoading(false))}
+                            title="Embedded youtube"
                         />
-                    </button>
+                    </div>
+                    <div className='flex items-end  p-4 px-20'>
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="bg-[#171717] text-[#73e7e7] text-sm w-17 bg-center hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] hover:bg-[#222325] h-9 px-4 m-3"
+                            onClick={() => {
+                                handleTogglePlayPause()
+                            }}
+                        >
+                            {isPlaying ? "Pause" : "Play"}
+                        </button>
 
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 m-3"
-                        onClick={() => handleVideoChange("prev")}
-                    >
-                        <span>{"<< Prev"}</span>
-                    </button>
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-4 m-3"
+                        >
+                            <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range"
+                                disabled={loading}
+                                onChange={(e) => {
+                                    handleSetVolume()
+                                    dispatch(setVolume(e.target.value))
+                                }}
+                            />
+                        </button>
 
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 m-3"
-                        onClick={() => handleVideoChange("next")}
-                    >
-                        <span>{"Next >>"}</span>
-                    </button>
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 m-3"
+                            onClick={() => { handleVideoChange("prev"), dispatch(setImage()) }}
+                        >
+                            <span>{"<< Prev"}</span>
+                        </button>
+
+                        <button
+                            type="submit"
+                            disabled={loading}
+                            className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 m-3"
+                            onClick={() => { handleVideoChange("next"), dispatch(setImage()) }}
+                        >
+                            <span>{"Next >>"}</span>
+                        </button>
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
         </>
     )
