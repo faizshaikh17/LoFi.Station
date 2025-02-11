@@ -16,36 +16,33 @@ function Player() {
         const script = document.createElement('script');
         script.src = "https://www.youtube.com/iframe_api";
         script.async = true
-        document.body.appendChild(script)
+        document.body.appendChild(script);
 
         return () => document.body.removeChild(script)
-    }, []);
+
+    }, [])
 
     const handleTogglePlayPause = () => {
         if (playerRef.current) {
-            const iframe = playerRef.current.contentWindow;
-            if (iframe) {
-                const action = isPlaying ? "pauseVideo" : "playVideo"
-                iframe.postMessage(
-                    `{"event":"command","func":"${action}","args":""}`,
-                    "*"
-                );
+            const iframeWindow = playerRef.current.contentWindow;
+            if (iframeWindow) {
+                const action = isPlaying ? "pauseVideo" : "playVideo";
+                iframeWindow.postMessage(`{
+                    "event":"command","func":"${action}","args":""}`, "*")
             }
         }
-        dispatch(togglePlayPause())
+        dispatch(togglePlayPause());
     }
 
     const handleSetVolume = () => {
         if (playerRef.current) {
-            const iframe = playerRef.current.contentWindow;
-            if (iframe) {
-                iframe.postMessage(
-                    `{"event":"command","func":"${volume}","args":""}`,
-                    "*"
-                );
+            const iframeWindow = playerRef.current.contentWindow
+            if (iframeWindow) {
+                iframeWindow.postMessage(`{
+                    "event":"command","func":"setVolume","args":${volume}
+                },"*"`)
             }
         }
-        dispatch(setVolume())
     }
 
     const handleVideoChange = (direction) => {
@@ -54,16 +51,16 @@ function Player() {
         } else {
             dispatch(nextVideo());
         }
-        dispatch(setLoading(true))
+        dispatch(setLoading(true));
 
         setTimeout(() => {
             if (playerRef.current) {
-                const iframe = playerRef.current.contentWindow;
-                if (iframe) {
-                    iframe.postMessage(
-                        `{"event":"command","func":"playVideo","args":""},"*"`
+                const iframeWindow = playerRef.current.contentWindow
+                if (iframeWindow) {
+                    iframeWindow.postMessage(
+                        `{"event": "command", "func": "playVideo", "args": ""}`, "*"
                     )
-                    dispatch(setLoading(false))
+                    dispatch(setLoading(false));
                 }
             }
             if (preFetchRef.current) {
@@ -72,16 +69,17 @@ function Player() {
         }, 1000)
     }
 
-    const handlePrefetchRef = () => {
-        const nextId = currentVideoId === videoIds?.length - 1 ? 0 : currentVideoId + 1
-        if (preFetchRef.current) {
-            preFetchRef.current.src = `https://www.youtube.com/embed/${videoIds[nextId]}?enablejsapi=1`
-        }
-    }
+    // const handlePrefetchVideo = () => {
+    //     const nextId = currentVideoId === videoIds?.length - 1 ? 0 : currentVideoId + 1;
+    //     if (preFetchRef.current) {
+    //         preFetchRef.current.src = `https://www.youtube.com/embed/${videoIds[nextId]}?enablejsapi=1`;
+    //     }
+    // }
 
-    useEffect(() => {
-        handlePrefetchRef()
-    }, [currentVideoId])
+    // useEffect(() => {
+    //     handlePrefetchVideo();
+    // }, [currentVideoId])
+
 
     return (
         <>
@@ -91,7 +89,7 @@ function Player() {
                         ref={playerRef}
                         width="853"
                         height="480"
-                        // src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1`}
+                        src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1`}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         onLoad={() => dispatch(setLoading(false))}
@@ -127,8 +125,8 @@ function Player() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
-                        onClick={handleVideoChange("prev")}
+                        className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 m-3"
+                        onClick={() => handleVideoChange("prev")}
                     >
                         <span>{"<< Prev"}</span>
                     </button>
@@ -136,8 +134,8 @@ function Player() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#93e7e7] h-9 px-4 m-3"
-                        onClick={handleVideoChange("next")}
+                        className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 m-3"
+                        onClick={() => handleVideoChange("next")}
                     >
                         <span>{"Next >>"}</span>
                     </button>
