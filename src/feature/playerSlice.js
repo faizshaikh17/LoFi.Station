@@ -20,12 +20,12 @@ const initialStatePlayer = {
         "J43mZ3F92T4", // Fight Demons within you
     ],
     videoNames: [
-        "Naruto-Chill Lofi",
-        "Ghibli Piano",
         "Saitama's Sorrow",
+        "Ghibli Piano",
+        "Naruto-Chill Lofi",
         "Suzume Door",
         "Tragedy of Boy who sought Freedom",
-        "Hokage's Funeral",
+        "Tanjiro no Uta",
         "Chill Vibes Night",
         "Anime Lofi Hiphop",
         "You Say Run",
@@ -59,11 +59,7 @@ const playerSlice = createSlice({
             state.loading = action.payload
         },
         setImage: (state, action) => {
-            do {
-                const newImage = Math.floor(Math.random() * 10) + 1
-            } while (newImage === state.image) {
-                return state.image = newImage
-            }
+            state.image = Math.floor(Math.random() * 10) + 1
         },
     },
 });

@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from './Footer'
+import Visualizer from './Visualizer'
 import { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo, setImage } from '../feature/playerSlice'
+import { Headphones } from 'lucide-react'
 
 function Player() {
 
@@ -39,7 +41,7 @@ function Player() {
             const iframeWindow = playerRef.current.contentWindow
             if (iframeWindow) {
                 iframeWindow.postMessage(`{
-                    "event":"command","func":"setVolume","args":"${volume}"}`, "*")
+                    "event":"command","func":"${setVolume}","args":"${volume}"}`, "*")
             }
         }
     }
@@ -68,24 +70,24 @@ function Player() {
         }, 1000)
     }
 
-    // const handlePrefetchVideo = () => {
-    //     const nextId = currentVideoId === videoIds?.length - 1 ? 0 : currentVideoId + 1;
-    //     if (preFetchRef.current) {
-    //         preFetchRef.current.src = `https://www.youtube.com/embed/${videoIds[nextId]}?enablejsapi=1`;
-    //     }
-    // }
+    const handlePrefetchVideo = () => {
+        const nextId = currentVideoId === videoIds?.length - 1 ? 0 : currentVideoId + 1;
+        if (preFetchRef.current) {
+            preFetchRef.current.src = `https://www.youtube.com/embed/${videoIds[nextId]}?enablejsapi=1`;
+        }
+    }
 
-    // useEffect(() => {
-    //     handlePrefetchVideo();
-    // }, [currentVideoId])
+    useEffect(() => {
+        handlePrefetchVideo();
+    }, [currentVideoId])
 
 
     return (
         <>
-            <div className='flex items-end justify-start fixed w-full  h-[55rex]'>
+            <div className='flex items-end justify-start  fixed w-full   h-[58rex]'>
                 <div className='flex  justify-between items-end'>
                     <div className="video-responsive hidden">
-                        <iframe
+                        {isPlaying && <iframe
                             ref={playerRef}
                             width="853"
                             height="480"
@@ -94,9 +96,18 @@ function Player() {
                             allowFullScreen
                             onLoad={() => dispatch(setLoading(false))}
                             title="Embedded youtube"
+                        />}
+                    </div>
+                    <div style={{ display: 'none' }} >
+                        <iframe
+                            ref={preFetchRef}
+                            width="853"
+                            height="480"
+                            title="preFetch youtube"
                         />
                     </div>
-                    <div className='flex items-end  p-4 px-20'>
+                    <div className='flex items-end  px-20'>
+                        <Visualizer />
                         <button
                             type="submit"
                             disabled={loading}
@@ -111,8 +122,9 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-4 m-3"
+                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-2 m-3 w-44"
                         >
+                            <Headphones size={22} />
                             <input className='bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range"
                                 disabled={loading}
                                 onChange={(e) => {
@@ -142,7 +154,7 @@ function Player() {
                     </div>
                     <Footer />
                 </div>
-            </div>
+            </div >
         </>
     )
 }

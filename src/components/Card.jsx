@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 
 function Card() {
-    const [nowPlaying, setNowPlaying] = useState([])
+    const { videoNames, currentVideoId } = useSelector((state) => (state.player))
+
+    const [nowPlaying, setNowPlaying] = useState("")
     const [time, setTime] = useState(null)
     const [lightEffect, setLightEffect] = useState(false)
 
     useEffect(() => {
+        setNowPlaying(videoNames[currentVideoId])
+
         setInterval(() => {
 
             const hours = (new Date(Date.now()).getHours()).toString().padStart("2", 0)
@@ -16,15 +22,15 @@ function Card() {
 
         }
             , 1000)
-    }, [time])
+    }, [time, currentVideoId])
 
     // ${lightEffect ? "text-[#FFFC01]" : "text-[#73E7F7]"}
 
     return (
-        <div className={`flex-col justify-items-start space-y-3 hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] `}>
-            <h1 className='text-xl'>Now Playing: {nowPlaying}</h1>
-            <h1 className='text-4xl' >{time} </h1>
-            <h1 className='flex items-center text-2xl'>Now or never,buddy</h1>
+        <div className={`flex-col justify-items-start  hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] `}>
+            <h1 className='text-xl '>Now Playing:{nowPlaying}</h1>
+            <h1 className='text-2xl text-[#73e7e7]' >{time} </h1>
+            <h1 className='flex items-center text-xl'>Now or never,buddy</h1>
         </div>
     )
 }

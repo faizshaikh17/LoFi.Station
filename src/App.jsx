@@ -8,15 +8,14 @@ import { useSelector } from 'react-redux'
 
 function App() {
 
-  const { image } = useSelector((state) => (state.player))
+  const { image, loading } = useSelector((state) => (state.player))
   const [bg, setBg] = useState(0)
   useEffect(() => {
-    console.log('Updating bg to:', image); // Debugging: Check if useEffect is running
     setBg(image);
   }, [image]);
-
+  console.log('Updating bg to:', bg);
   return (
-    <div className={`min-h-screen w-full flex flex-wrap content-between fixed bg-[url(src/assets/gif/0.gif)] bg-no-repeat bg-cover bg-center `}>
+    <div className={`h-[100vh] w-full flex flex-wrap content-between fixed ${loading ? 'bg-[url(src/assets/gif/loading.gif)] ' : "bg-[url(src/assets/gif/0.gif)] bg-no-repeat bg-cover bg-center"}  `}>
       <div className='w-full block text-2xl'>
         <Header />
         <Player />
