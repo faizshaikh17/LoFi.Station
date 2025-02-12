@@ -17,9 +17,10 @@ function App() {
     <div className={`h-[100vh] w-full bg-no-repeat bg-center bg-cover  absolute top-0 left-0 z-[1] bg-neutral-950/60 flex flex-wrap content-between`}
       style={{
         backgroundImage: `url(/assets/gif/${background}.gif)`,
+        fontFamily: 'MyFont',
       }}
     >
-      <div style={{ fontFamily: 'MyFont' }} className='w-full block text-2xl'>
+      <div className='w-full block text-2xl'>
         <Header />
         <Player />
         <Footer />

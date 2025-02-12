@@ -11,7 +11,7 @@
   height: 100vh;
   width: 100vw;
   text-align: center;
-  font-family: 'MyFont';
+  font-family: 'MyFont', url('/assets/fonts/Web437_ACM_VGA_9x16.woff') format('woff');
   scrollbar-width: 0;
   cursor: url('/assets/cursors/default.png'), auto;
 }
