@@ -8,8 +8,18 @@ import { useSelector } from 'react-redux'
 
 function App() {
   const { image, loading } = useSelector((state) => (state.player))
+  const [background, setBackground] = useState();
+
+  useEffect(() => {
+    loading ? setBackground("loading2") : setBackground(image)
+  }, [image,loading])
+
   return (
-    <div className={`h-[100vh] w-full flex flex-wrap content-between fixed ${loading ? 'bg-[url(src/assets/gif/loading2.gif)] bg-no-repeat bg-cover ' : ""} bg-[url(src/assets/gif/8.gif)]  bg-cover bg-center `}>
+    <div className={`h-[100vh] w-full flex flex-wrap content-between fixed bg-no-repeat bg-center bg-cover ${loading ? 'bg-[url(src/assets/gif/loading2.gif)]' : ""}  `}
+      style={{
+        backgroundImage: `url(src/assets/gif/${background}.gif)`,
+      }}
+    >
       <div className='w-full block text-2xl'>
         <Header />
         <Player />
@@ -20,4 +30,3 @@ function App() {
 }
 
 export default App
-// https://i.pinimg.com/originals/68/31/45/6831454cf213ed7ffa541fe666fa9cf8.gif
