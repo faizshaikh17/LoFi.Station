@@ -4,11 +4,9 @@ import { addTodo, deleteTodo } from '../feature/slice';
 
 function Todo() {
     const [input, setInput] = useState("");
-    // const [isTodoEditable, setIsTodoEditable] = useState(null)
     const dispatch = useDispatch();
     const todos = useSelector((state) => state.todo.todos)
     const [todoCompleted, setTodoCompleted] = useState(null);
-    // const todo = todos.map((todo) => { todo.id === isTodoEditable ? "" : "" })
 
     const add = (e) => {
         e.preventDefault();
@@ -19,11 +17,10 @@ function Todo() {
     return (
         <>
             <div className='flex bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-[#73e7e7] '>
-                <form onSubmit={add}
-                    className=" flex justify-between" >
+                <form onSubmit={add} className=" flex justify-between" >
                     <input
                         type="text"
-                        className={`bg-[#171717] text-sm h-9 hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1  text-[#73e7e7] m-1 px-4 `}
+                        className={`bg-[#171717] text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1  text-[#73e7e7] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -31,7 +28,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="bg-[#73e7e7] text-black text-sm hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] bg-center hover:bg-[#93e7e7] h-9 px-4 m-1"
+                        className="bg-[#73e7e7] text-black text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center hover:bg-[#93e7e7] h-9 px-4 m-1"
                     >
                         Add
                     </button>
@@ -43,25 +40,23 @@ function Todo() {
                             <div className='flex justify-between items-center px-4'>
                                 <div className='flex items-center' >
                                     <input
-
                                         type="checkbox"
-                                        className='default:ring-4 h-4 w-4 hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-white '
+                                        className='default:ring-4 h-4 w-4 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-white '
                                         onClick={() => {
                                             setTodoCompleted(todo.id)
                                             if (todoCompleted === todo.id) {
                                                 setTodoCompleted(null)
                                             }
-                                        }
-                                        }
+                                        }}
                                     />
 
-                                    <span className={`text-[#73e7e7] text-sm p-2 hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
+                                    <span className={`text-[#73e7e7] text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
                                 </div>
 
                                 <div className=''>
                                     <button
                                         onClick={() => dispatch(deleteTodo(todo.id))}
-                                        className="px-2 h-9 hover:bg-[#73e7e7] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]"
+                                        className="px-2 h-9 hover:bg-[#73e7e7] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +75,6 @@ function Todo() {
                                     </button>
                                 </div>
                             </div>
-
                         </li>
                     ))}
                 </ul >

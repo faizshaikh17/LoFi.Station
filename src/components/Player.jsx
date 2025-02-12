@@ -6,22 +6,17 @@ import { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo, setIm
 import { Headphones } from 'lucide-react'
 
 function Player() {
-
     const dispatch = useDispatch();
     const playerRef = useRef(null);
     const preFetchRef = useRef(null);
     const { isPlaying, image, volume, currentVideoId, videoIds, loading } = useSelector((state) => (state.player))
-    // console.log(isPlaying, volume, loading, currentVideoId)
 
     useEffect(() => {
-
         const script = document.createElement('script');
         script.src = "https://www.youtube.com/iframe_api";
         script.async = true
         document.body.appendChild(script);
-
         return () => document.body.removeChild(script)
-
     }, [])
 
     const handleTogglePlayPause = () => {
@@ -29,8 +24,7 @@ function Player() {
             const iframeWindow = playerRef.current.contentWindow;
             if (iframeWindow) {
                 const action = isPlaying ? "pauseVideo" : "playVideo";
-                iframeWindow.postMessage(`{
-                    "event":"command","func":"${action}","args":""}`, "*")
+                iframeWindow.postMessage(`{"event":"command","func":"${action}","args":""}`, "*")
             }
         }
         dispatch(togglePlayPause());
@@ -40,8 +34,7 @@ function Player() {
         if (playerRef.current) {
             const iframeWindow = playerRef.current.contentWindow
             if (iframeWindow) {
-                iframeWindow.postMessage(`{
-                    "event":"command","func":"${setVolume}","args":"${volume}"}`, "*")
+                iframeWindow.postMessage(`{"event":"command","func":"${setVolume}","args":"${volume}"}`, "*")
             }
         }
     }
@@ -58,9 +51,7 @@ function Player() {
             if (playerRef.current) {
                 const iframeWindow = playerRef.current.contentWindow
                 if (iframeWindow) {
-                    iframeWindow.postMessage(
-                        `{"event": "command", "func": "playVideo", "args": ""}`, "*"
-                    )
+                    iframeWindow.postMessage(`{"event": "command", "func": "playVideo", "args": ""}`, "*")
                     dispatch(setLoading(false));
                 }
             }
@@ -80,7 +71,6 @@ function Player() {
     useEffect(() => {
         handlePrefetchVideo();
     }, [currentVideoId])
-
 
     return (
         <>
@@ -111,7 +101,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#73e7e7] text-[#171717] text-sm w-17 bg-center hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] h-9 px-4 "
+                            className="bg-[#73e7e7] text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
                             onClick={() => {
                                 handleTogglePlayPause()
                             }}
@@ -122,10 +112,10 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-2  w-44"
+                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-2  w-44"
                         >
                             <Headphones size={22} />
-                            <input className="custom-slider bg-[#171717] hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer]" type="range"
+                            <input className="custom-slider bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]" type="range"
                                 disabled={loading}
                                 onChange={(e) => {
                                     handleSetVolume()
@@ -137,7 +127,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 "
+                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 "
                             onClick={() => { handleVideoChange("prev"), dispatch(setImage()) }}
                         >
                             <span>{"<< Prev"}</span>
@@ -146,7 +136,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 "
+                            className="bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 "
                             onClick={() => { handleVideoChange("next"), dispatch(setImage()) }}
                         >
                             <span>{"Next >>"}</span>

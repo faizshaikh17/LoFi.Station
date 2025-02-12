@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import { Clock, Github, List, Twitter } from "lucide-react";
 import Todo from '../components/Todo'
@@ -10,18 +9,17 @@ function Header() {
     return (
         <header className='flex justify-between m-8 p-2'>
             <Card />
-            {/* text-[#FFFC01] */}
-            <div className='flex justify-between  text-[#73e7e7] w-35'>
-                <a className='hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' href="https://github.com/faizshaikh17/lofi-station">
+            <div className='flex justify-between text-[#73e7e7] w-35'>
+                <a className='hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://github.com/faizshaikh17/lofi-station">
                     <Github size={25} />
                 </a>
-                <a className='hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' href="https://x.com/iamfaizz17">
+                <a className='hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://x.com/iamfaizz17">
                     <Twitter size={25} />
                 </a>
-                <div className="relative hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] ">
+                <div className="relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
                     <Clock size={25} />
                 </div>
-                <div className="relative hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] ">
+                <div className="relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
                     <List size={25} onClick={() => (setTodoToggle((prev) => !prev))} />
                     {todotoggle && <Todo />}
                 </div>
