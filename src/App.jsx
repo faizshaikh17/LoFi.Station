@@ -12,10 +12,10 @@ function App() {
 
   useEffect(() => {
     loading ? setBackground("loading2") : setBackground(image)
-  }, [image,loading])
+  }, [image, loading])
 
   return (
-    <div className={`h-[100vh] w-full flex flex-wrap content-between fixed bg-no-repeat bg-center bg-cover ${loading ? 'bg-[url(src/assets/gif/loading2.gif)]' : ""}  `}
+    <div className={`h-[100vh] w-full absolute top-0 left-0 z-[1] bg-neutral-950/60 flex flex-wrap content-between bg-no-repeat bg-center bg-cover `}
       style={{
         backgroundImage: `url(src/assets/gif/${background}.gif)`,
       }}
