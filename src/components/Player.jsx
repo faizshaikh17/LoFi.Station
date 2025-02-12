@@ -84,7 +84,7 @@ function Player() {
 
     return (
         <>
-            <div className='flex items-end justify-start  fixed w-full   h-[58rex]'>
+            <div className='flex items-end justify-start  fixed w-full h-[55rex]'>
                 <div className='flex  justify-between items-end'>
                     <div className="video-responsive hidden">
                         {isPlaying && <iframe
