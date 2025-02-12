@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const randomLoad = Math.floor(Math.random() * 10)
-    const loadingBackground = randomLoad % 2 === 0 ? "loading" : "Loading2";
+    const loadingBackground = randomLoad % 2 === 0 ? "loading" : "loading2";
     loading ? setBackground(loadingBackground) : setBackground(image)
   }, [image, loading])
 
