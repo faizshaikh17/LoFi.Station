@@ -152,7 +152,6 @@ function Player() {
                             <span>{"Next >>"}</span>
                         </button>
                     </div>
-                    <Footer />
                 </div>
             </div >
         </>
