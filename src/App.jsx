@@ -20,7 +20,7 @@ function App() {
         backgroundImage: `url(src/assets/gif/${background}.gif)`,
       }}
     >
-      <div className='w-full block text-2xl'>
+      <div style={{ fontFamily: 'MyFont' }} className='w-full block text-2xl'>
         <Header />
         <Player />
         <Footer />

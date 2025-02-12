@@ -1,1 +1,66 @@
 @import "tailwindcss";
+
+
+#root {
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    font-family: 'MyFont';
+    scrollbar-width: 0;
+    cursor: url('src/assets/cursors/default.png'), auto;
+    /* cursor: url('./assets/cursors/pointer.png'), pointer; */
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('src/assets//fonts/Web437_ACM_VGA_9x16.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Custom Slider Styles */
+.custom-slider {
+    -webkit-appearance: none;
+    /* Remove default styling */
+    appearance: none;
+    width: 80%;
+    /* Full width */
+    height: 4px;
+    /* Slider height */
+    background: #73e7e7;
+    /* Slider track color */
+    outline: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.custom-slider:hover {
+    opacity: 1;
+    /* Full opacity on hover */
+}
+
+/* Custom Thumb (Slider Handle) */
+.custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Remove default styling */
+    appearance: none;
+    width: 16px;
+    /* Thumb width */
+    height: 16px;
+    /* Thumb height */
+    background: #73e7e7;
+    /* Thumb color */
+    border-radius: 50%;
+    /* Circular thumb */
+}
+
+.custom-slider::-moz-range-thumb {
+    width: 16px;
+    /* Thumb width */
+    height: 16px;
+    /* Thumb height */
+    background: #73e7e7;
+    /* Thumb color */
+    border-radius: 50%;
+    /* Circular thumb */
+}

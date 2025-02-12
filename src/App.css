@@ -6,7 +6,6 @@
   width: 100vw;
   text-align: center;
   font-family: 'MyFont';
-  font-family: url('src/assets/fonts/Web437_ACM_VGA_9x16.woff');
   scrollbar-width: 0;
   cursor: url('src/assets/cursors/default.png'), auto;
   /* cursor: url('./assets/cursors/pointer.png'), pointer; */
