@@ -1,6 +1,8 @@
 # Lofi-Station: 24/7 Lofi Radio & Productivity Tool
 
-**Lofi Station** is a 24/7 online lofi radio web application built with **React** and **TailwindCSS**. The website will be live at [lofi-station.me](https://lofi-station.me).
+**Lofi Station is your 24/7 cozy companion, a soothing online lofi radio web application crafted with love (and a whole lot of React and TailwindCSS). Whether you're cramming for exams, chasing deadlines, or just vibing with your cat, we’ve got your back with those chill beats. 🎶✨
+
+Mark your calendars and set your vibes to zen mode—the website will be live at lofi-station.me. Because life’s too short for bad music and boring websites. 🎧💛 [lofi-station.me](https://lofi-station.me).
 
 ---
 
