@@ -84,8 +84,8 @@ function Player() {
 
     return (
         <>
-            <div className='flex items-end justify-start  fixed   w-full h-[62rex]'>
-                <div className='flex  justify-between border-2 border-double  rounded-3xl  mx-15 p-2 items-end'>
+            <div className='flex items-end justify-start fixed w-full h-[62rex]'>
+                <div className='flex '>
                     <div className="video-responsive hidden">
                         {isPlaying && <iframe
                             ref={playerRef}
@@ -106,7 +106,7 @@ function Player() {
                             title="preFetch youtube"
                         />
                     </div>
-                    <div className='flex items-end space-x-2 px-10'>
+                    <div className='flex space-x-2 px-5'>
                         <Visualizer />
                         <button
                             type="submit"
