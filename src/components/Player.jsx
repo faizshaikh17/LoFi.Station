@@ -111,7 +111,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#73e7e7] text-[#171717] text-sm w-17 bg-center hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+                            className="bg-[#73e7e7] text-[#171717] text-sm w-17 bg-center hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] h-9 px-4 "
                             onClick={() => {
                                 handleTogglePlayPause()
                             }}
@@ -122,10 +122,10 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-2  w-44"
+                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] text-[#73e7e7] text-sm bg-bottom hover:bg-[#242525] h-9 px-2  w-44"
                         >
                             <Headphones size={22} />
-                            <input className='custom-slider bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer]' type="range"
+                            <input className="custom-slider bg-[#171717] hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer]" type="range"
                                 disabled={loading}
                                 onChange={(e) => {
                                     handleSetVolume()
@@ -137,7 +137,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 "
+                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 "
                             onClick={() => { handleVideoChange("prev"), dispatch(setImage()) }}
                         >
                             <span>{"<< Prev"}</span>
@@ -146,7 +146,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 "
+                            className="bg-[#171717] hover:cursor-[url('src/assets/cursors/pointer.png'),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 "
                             onClick={() => { handleVideoChange("next"), dispatch(setImage()) }}
                         >
                             <span>{"Next >>"}</span>

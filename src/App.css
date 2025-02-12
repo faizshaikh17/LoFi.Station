@@ -6,14 +6,15 @@
   width: 100vw;
   text-align: center;
   font-family: 'MyFont';
-  font-family: url(./assets/fonts/Web437_IBM_VGA_9x14.woff);
+  font-family: url('./assets/fonts/Web437_ACM_VGA_9x16.woff');
   scrollbar-width: 0;
-  cursor: url('./assets/cursors/default.png'), auto;
+  cursor: url('src/assets/cursors/default.png'), auto;
+  /* cursor: url('./assets/cursors/pointer.png'), pointer; */
 }
 
 @font-face {
   font-family: 'MyFont';
-  src: url('./assets//fonts/Web437_ACM_VGA_9x16.woff') format('woff');
+  src: url('src/assets//fonts/Web437_ACM_VGA_9x16.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
