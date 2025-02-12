@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 
+@font-face {
+  font-family: 'MyFont';
+  src: url('src/assets//fonts/Web437_ACM_VGA_9x16.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   height: 100vh;
   width: 100vw;
@@ -11,12 +18,6 @@
   /* cursor: url('./assets/cursors/pointer.png'), pointer; */
 }
 
-@font-face {
-  font-family: 'MyFont';
-  src: url('src/assets//fonts/Web437_ACM_VGA_9x16.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* Custom Slider Styles */
 .custom-slider {
