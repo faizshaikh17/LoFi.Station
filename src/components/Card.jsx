@@ -16,7 +16,8 @@ function Card() {
 
             const hours = (new Date(Date.now()).getHours()).toString().padStart("2", 0)
             const minutes = (new Date(Date.now()).getMinutes()).toString().padStart("2", 0)
-            setTime(`${hours}:${minutes}`)
+            const seconds = (new Date(Date.now()).getSeconds()).toString().padStart("2", 0)
+            setTime(`${hours}:${minutes}:${seconds}`)
 
             setLightEffect((prev) => !prev)
 
@@ -28,8 +29,8 @@ function Card() {
 
     return (
         <div className={`flex-col justify-items-start  hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] `}>
-            <h1 className='text-xl '>Now Playing:{nowPlaying}</h1>
-            <h1 className='text-2xl text-[#73e7e7]' >{time} </h1>
+            <h1 className='text-xl'>Now Playing:{nowPlaying}</h1>
+            <h1 className='text-2xl' >{time} </h1>
             <h1 className='flex items-center text-xl'>Now or never,buddy</h1>
         </div>
     )

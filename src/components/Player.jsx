@@ -84,8 +84,8 @@ function Player() {
 
     return (
         <>
-            <div className='flex items-end justify-start  fixed  w-full h-[62rex]'>
-                <div className='flex  justify-between items-end'>
+            <div className='flex items-end justify-start  fixed   w-full h-[62rex]'>
+                <div className='flex  justify-between border-2 border-double  rounded-3xl  mx-15 p-2 items-end'>
                     <div className="video-responsive hidden">
                         {isPlaying && <iframe
                             ref={playerRef}
@@ -140,7 +140,7 @@ function Player() {
                             className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center  h-9 px-4 "
                             onClick={() => { handleVideoChange("prev"), dispatch(setImage()) }}
                         >
-                            <span>{"<<Prev"}</span>
+                            <span>{"<< Prev"}</span>
                         </button>
 
                         <button
@@ -149,7 +149,7 @@ function Player() {
                             className="bg-[#171717] hover:cursor-[url(src/assets/cursors/pointer.png),_pointer] text-[#73e7e7] text-sm w-25 bg-center hover:bg-[#242525] h-9 px-4 "
                             onClick={() => { handleVideoChange("next"), dispatch(setImage()) }}
                         >
-                            <span>{"Next>>"}</span>
+                            <span>{"Next >>"}</span>
                         </button>
                     </div>
                     <Footer />
