@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 function Visualizer() {
     const { isPlaying } = useSelector((state) => state.player);
 
-    const [div1, setDiv1] = useState(4);
-    const [div2, setDiv2] = useState(5);
-    const [div3, setDiv3] = useState(4);
+    const [div1, setDiv1] = useState();
+    const [div2, setDiv2] = useState();
+    const [div3, setDiv3] = useState();
 
     useEffect(() => {
         let interval;
@@ -21,9 +21,9 @@ function Visualizer() {
                 setDiv3(c);
             }, 300);
         } else {
-            setDiv1(5);
-            setDiv2(5);
-            setDiv3(5);
+            setDiv1(3);
+            setDiv2(3);
+            setDiv3(3);
         }
 
         return () => clearInterval(interval);

@@ -20,7 +20,7 @@ function Todo() {
                 <form onSubmit={add} className=" flex justify-between" >
                     <input
                         type="text"
-                        className={`bg-[#171717] text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1  text-[#73e7e7] m-1 px-4 `}
+                        className={`bg-[#171717] font-bold text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1  text-[#73e7e7] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -28,7 +28,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="bg-[#73e7e7] text-black text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center hover:bg-[#93e7e7] h-9 px-4 m-1"
+                        className="bg-[#73e7e7] text-black font-bold text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center hover:bg-[#93e7e7] h-9 px-4 m-1"
                     >
                         Add
                     </button>
