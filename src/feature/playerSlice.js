@@ -4,7 +4,7 @@ const initialStatePlayer = {
 
     isPlaying: false,
     image: 1,
-    volume: 50,
+    volume: 60,
     loading: false,
     currentVideoId: 0,
     videoIds: [
