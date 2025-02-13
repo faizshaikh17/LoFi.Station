@@ -4,7 +4,7 @@ const initialStatePlayer = {
 
     isPlaying: false,
     image: 1,
-    volume: 80,
+    volume: 50,
     loading: false,
     currentVideoId: 0,
     videoIds: [
@@ -43,17 +43,17 @@ const playerSlice = createSlice({
             state.isPlaying = !state.isPlaying
         },
         setVolume: (state, action) => {
-            state.volume = action.payload
+            state.volume = action.payload;
         },
         previousVideo: (state) => {
             state.currentVideoId = state.currentVideoId === 0 ? state.videoIds.length - 1 : state.currentVideoId - 1;
             state.isPlaying = true
-            state.volume = 100
+            // state.volume = 100
         },
         nextVideo: (state) => {
             state.currentVideoId = state.currentVideoId >= state.videoIds.length - 1 ? 0 : state.currentVideoId + 1;
             state.isPlaying = true
-            state.volume = 100
+            // state.volume = 100
         },
         setLoading: (state, action) => {
             state.loading = action.payload

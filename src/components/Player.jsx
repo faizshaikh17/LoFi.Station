@@ -9,7 +9,7 @@ function Player() {
     const dispatch = useDispatch();
     const playerRef = useRef(null);
     const preFetchRef = useRef(null);
-    const { isPlaying, image, volume, currentVideoId, videoIds, loading } = useSelector((state) => (state.player))
+    const { isPlaying, volume, currentVideoId, videoIds, loading } = useSelector((state) => (state.player))
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -31,10 +31,11 @@ function Player() {
     }
 
     const handleSetVolume = () => {
+        console.log(volume)
         if (playerRef.current) {
             const iframeWindow = playerRef.current.contentWindow
             if (iframeWindow) {
-                iframeWindow.postMessage(`{"event":"command","func":"${setVolume}","args":"${volume}"}`, "*")
+                iframeWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volume}]}`, "*")  //${}
             }
         }
     }
@@ -101,7 +102,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#73e7e7] font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+                            className="bg-[#73e7e7] hover:opacity-90 font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
                             onClick={() => {
                                 handleTogglePlayPause()
                             }}
@@ -118,8 +119,8 @@ function Player() {
                             <input className="custom-slider bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]" type="range"
                                 disabled={loading}
                                 onChange={(e) => {
-                                    handleSetVolume()
                                     dispatch(setVolume(e.target.value))
+                                    handleSetVolume()
                                 }}
                             />
                         </button>
