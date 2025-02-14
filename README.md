@@ -1,19 +1,39 @@
-# Lofi-Station: 24/7 Lofi Radio & Productivity Tool
+### Lofi-Station: 24/7 Lofi Radio & Productivity Tool
 
-**Lofi Station is your 24/7 cozy companion, a soothing online lofi radio web application crafted with love (and a whole lot of React and TailwindCSS). Whether you're cramming for exams, chasing deadlines, or just vibing with your cat, we’ve got your back with those chill beats. 🎶✨
-
-Mark your calendars and set your vibes to zen mode—the website will be live at lofi-station.me. Because life’s too short for bad music and boring websites. 🎧💛 [lofi-station.me](https://lofi-station.me).
+Lofi Station is your 24/7 cozy companion, a soothing online lofi radio web application crafted with love (and a whole lot of React and TailwindCSS).
 
 ---
 
-## Features
+### Features
 
-- 🎵 **10 Lofi Stations**: Choose from 10 different lofi music stations.
-- 🎨 **Small Visualizer**: A cute audio visualizer.
-- ⏱️ **Adjustable Pomodoro Timer**: Customizable timer for productivity.
-- 📝 **Todo List**: Manage tasks with a built-in to-do list.
-- 👤 **Username Customization**: Change your username (kinda useless but fun!).
+- Immerse in 20 different lofi music stations.
+- Stare at nano audio visualizer.
+- Customizable timer for productivity.
+- Manage tasks with a task management system aka(todo-list).
+- Change username (To give that personal touch!).
 
 ---
 
-Enjoy your lofi experience! 🎶
+### Screenshots
+
+
+![readmeBg1](https://github.com/user-attachments/assets/4974b469-6f31-497a-9d6e-a177d6734f84)
+
+
+![readmeBg2](https://github.com/user-attachments/assets/29654a5f-f5f5-4cac-83b1-46f6b15e9ec4)
+
+
+### Stream Credits
+
+```
+https://youtu.be/xmLszyYZdiw?si=POh92y6H2EqX9CR1
+https://youtu.be/HGl75kurxok?si=Bi4XXeUjNeaNEMb1
+https://youtu.be/8GpgadrMliU?si=9Lmq-Z2FARKzcceP
+https://youtu.be/Sia4qWv_reM?si=5akmckpaopOF7FTW
+https://youtu.be/XScfHk5CP0s?si=oDTzhvy2IhXf9IoS
+https://youtu.be/bq7caidfUts?si=NA08Ou1j2qYXLbAf
+https://youtu.be/A7uNvvAKsYU?si=jfj1WJHzC4LL5sG1
+https://youtu.be/7J54GyI18fU?si=ttcNaVqNLr9yNTBB
+https://youtu.be/3SDBTVcBUVs?si=T0tLCQlgMxyGQulz
+https://youtu.be/J43mZ3F92T4?si=kcl0NBwH51QnkXq3
+```
