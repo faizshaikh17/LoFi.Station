@@ -7,7 +7,7 @@ function Header() {
     const [todotoggle, setTodoToggle] = useState(false)
 
     return (
-        <header className='flex justify-between m-8 p-2'>
+        <header className='flex flex-wrap justify-between m-8 p-2'>
             <Card />
             <div className='flex justify-between text-[#73e7e7] w-35'>
                 <a className='hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://github.com/faizshaikh17/lofi-station" target="_blank">

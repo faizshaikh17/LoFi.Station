@@ -17,7 +17,7 @@ function App() {
   }, [image, loading])
 
   return (
-    <div className={`h-[100vh] w-full bg-no-repeat bg-center bg-cover  absolute top-0 left-0 z-[1] bg-neutral-950/60 flex flex-wrap content-between`}
+    <div className={`h-[100vh] w-full  bg-center bg-no-repeat bg-cover  absolute top-0 left-0 z-[1] bg-neutral-950/60 flex flex-wrap content-between`}
       style={{
         backgroundImage: `url(/assets/gif/${background}.gif)`,
         // backgroundImage: `url(/assets/gif/0.png)`,

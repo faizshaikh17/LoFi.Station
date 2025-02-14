@@ -97,7 +97,7 @@ function Player() {
                             title="preFetch youtube"
                         />
                     </div>
-                    <div className='flex space-x-2 my-4 px-5'>
+                    <div className='flex flex-wrap gap-4 my-4 px-5'>
                         <Visualizer />
                         <button
                             type="submit"
