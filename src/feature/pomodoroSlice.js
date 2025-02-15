@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialStatePomodoro = {
     workDuration: 25 * 60,
     breakDuration: 5 * 60,
-    timeLeft: 25 * 60,
+    timeLeft: 5 * 60,
     isRunning: false,
     isWorkInterval: true
 };
@@ -15,12 +15,14 @@ const pomodoroSlice = createSlice({
         subTime: () => { },
         addTime: () => { },
         startTimer: (state) => {
-            state.isRunning = true;
+            state.isRunning = true
+
         },
-        pauseTimer: () => {
-            state.isRunning = false;
-        },
+        // pauseTimer: () => {
+        //     if (state.isRunning) state.isRunning = false
+        // },
         tick: (state) => {
+
             if (state.timeLeft > 0) {
                 state.timeLeft--
             } else {
@@ -30,7 +32,7 @@ const pomodoroSlice = createSlice({
         },
         reset: (state) => {
             state.isRunning = false;
-            state.timeLeft = state.timerDuration
+            state.timeLeft = state.breakDuration
             state.isWorkInterval = false
         }
     }
