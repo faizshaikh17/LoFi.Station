@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialStatePomodoro = {};
+const initialStatePomodoro = {
+    
+};
 
 const pomodoroSlice = createSlice({
     name: 'pomodoro',

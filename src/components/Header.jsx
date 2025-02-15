@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Clock, Github, List, Twitter } from "lucide-react";
 import Todo from '../components/Todo'
+import Pomodoro from './Pomodoro';
 import Card from './Card';
 
 function Header() {
     const [todotoggle, setTodoToggle] = useState(false)
+    const [pomodoroToggle, setPomodoroToggle] = useState(false)
+
+    useEffect(() => {
+        
+    }, [todotoggle, pomodoroToggle])
+
 
     return (
         <header className='flex flex-wrap justify-between m-8 p-2'>
@@ -17,7 +24,8 @@ function Header() {
                     <Twitter size={24} />
                 </a>
                 <div className="relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
-                    <Clock size={24} />
+                    <Clock size={24} onClick={() => (setPomodoroToggle((prev) => !prev))} />
+                    {pomodoroToggle && <Pomodoro />}
                 </div>
                 <div className="relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
                     <List size={24} onClick={() => (setTodoToggle((prev) => !prev))} />
