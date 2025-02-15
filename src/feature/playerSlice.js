@@ -8,6 +8,7 @@ const initialStatePlayer = {
     loading: false,
     currentVideoId: 0,
     videoIds: [
+        "H_5yoMlKiVA",
         "8GpgadrMliU", // Saitama's Sorrow
         "HGl75kurxok", // Ghibli Piano
         "xmLszyYZdiw", // Naruto-Chill Lofi
@@ -20,6 +21,7 @@ const initialStatePlayer = {
         "J43mZ3F92T4", // Fight Demons within you
     ],
     videoNames: [
+        "Nightcall",
         "Saitama's Sorrow",
         "Ghibli Piano",
         "Naruto-Chill Lofi",
@@ -78,6 +80,7 @@ export default playerSlice.reducer;
 // https://youtu.be/7J54GyI18fU?si=ttcNaVqNLr9yNTBB
 // https://youtu.be/3SDBTVcBUVs?si=T0tLCQlgMxyGQulz
 // https://youtu.be/J43mZ3F92T4?si=kcl0NBwH51QnkXq3
+// https://youtu.be/H_5yoMlKiVA?si=83sn8qYMOSSkSq0v
 
 
 

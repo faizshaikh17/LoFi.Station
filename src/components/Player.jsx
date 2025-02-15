@@ -82,7 +82,7 @@ function Player() {
                             ref={playerRef}
                             width="853"
                             height="480"
-                            src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1;start=20`}
+                            src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1;start=10`}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             onLoad={() => dispatch(setLoading(false))}
@@ -102,7 +102,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#73e7e7] hover:opacity-90 font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+                            className="bg-[#73e7e7] hover:bg-[#93e7e7] font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
                             onClick={() => {
                                 handleTogglePlayPause()
                             }}
@@ -131,7 +131,7 @@ function Player() {
                             className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#73e7e7] text-sm w-22 bg-center  h-9 px-4 "
                             onClick={() => { handleVideoChange("prev"), dispatch(setImage()) }}
                         >
-                            <span>{"<< Prev"}</span>
+                            <span className='flex'>{"<< Prev"}</span>
                         </button>
 
                         <button
@@ -140,7 +140,7 @@ function Player() {
                             className="bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#73e7e7] text-sm w-22 bg-center hover:bg-[#242525] h-9 px-4 "
                             onClick={() => { handleVideoChange("next"), dispatch(setImage()) }}
                         >
-                            <span>{"Next >>"}</span>
+                            <span className='flex'>{"Next >>"}</span>
                         </button>
                     </div>
                 </div>

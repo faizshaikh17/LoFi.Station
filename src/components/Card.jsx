@@ -21,7 +21,7 @@ function Card() {
 
     return (
         <div className={`flex-col justify-items-start hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#73e7e7] `}>
-            <h1 className='text-xl'>Now Playing:{nowPlaying}</h1>
+            <h1 className='text-xl'>Now Playing: {nowPlaying}</h1>
             <h1 className='text-2xl' >{time} </h1>
             <h1 className='flex items-center text-xl'>Now or never,buddy</h1>
         </div>

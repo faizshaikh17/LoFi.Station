@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, deleteTodo } from '../feature/slice';
+import { addTodo, deleteTodo } from '../feature/todoSlice';
 
 function Todo() {
     const [input, setInput] = useState("");
@@ -17,10 +17,10 @@ function Todo() {
     return (
         <>
             <div className='flex bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-[#73e7e7] '>
-                <form onSubmit={add} className=" flex justify-between" >
+                <form onSubmit={add} className=" flex " >
                     <input
                         type="text"
-                        className={`bg-[#171717] font-bold text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1  text-[#73e7e7] m-1 px-4 `}
+                        className={`bg-[#171717] w-[13.5rem] font-bold text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1 text-[#73e7e7] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
