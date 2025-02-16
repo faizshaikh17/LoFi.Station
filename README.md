@@ -1,6 +1,6 @@
 ### Lofi-Station: 24/7 Lofi Radio & Productivity Tool
 
-Lofi Station is your 24/7 cozy companion, a soothing online lofi radio web application crafted with love (and a whole lot of React and TailwindCSS).
+Lofi Station is your 24/7 cozy companion, a soothing online lofi radio web application crafted with love (and a whole lot of React and TailwindCSS). The website is live at [LoFi.Station](https://lofistation.vercel.app/).
 
 ---
 
