@@ -51,7 +51,7 @@ function Todo() {
                                             }
                                         }}
                                     />
-                                    <span className={`text-[#73e7e7] text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
+                                    <span className={`text-[#73e7e7] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
                                 </div>
 
                                 <div className='flex items-center'>
