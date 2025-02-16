@@ -16,7 +16,7 @@ function Todo() {
 
     return (
         <>
-            <div className='flex bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-8 flex-col bg-primary w-80 items-center justify-center p-4 m-8 shadow-lg text-[#73e7e7] '>
+            <div className='flex bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-5 flex-col bg-primary w-80 items-center justify-center p-4 m-6 shadow-lg text-[#73e7e7] '>
                 <form onSubmit={add} className=" flex " >
                     <input
                         type="text"

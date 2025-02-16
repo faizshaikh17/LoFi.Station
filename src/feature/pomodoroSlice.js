@@ -12,8 +12,16 @@ const pomodoroSlice = createSlice({
     name: 'pomodoro',
     initialState: initialStatePomodoro,
     reducers: {
-        subTime: () => { },
-        addTime: () => { },
+        subTime: (state) => {
+            if (state.timeLeft > state.breakDuration) {
+                state.timeLeft -= state.breakDuration;
+            }
+        },
+        addTime: (state) => {
+            if (state.timeLeft < 2 * 60 * 60) {
+                state.timeLeft += state.breakDuration;
+            }
+        },
         startTimer: (state) => {
             state.isRunning = true
         },
@@ -26,7 +34,7 @@ const pomodoroSlice = createSlice({
                 state.timeLeft--
             } else {
                 state.isRunning = false
-                // state.timeLeft = state.workDuration
+                state.timeLeft = state.workDuration
             }
         },
         reset: (state) => {
@@ -37,5 +45,5 @@ const pomodoroSlice = createSlice({
     }
 })
 
-export const { startTimer, pauseTimer, tick, reset } = pomodoroSlice.actions;
+export const { addTime, subTime, startTimer, pauseTimer, tick, reset } = pomodoroSlice.actions;
 export default pomodoroSlice.reducer
