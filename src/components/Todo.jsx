@@ -16,11 +16,11 @@ function Todo() {
     }
     return (
         <>
-            <div className='flex items-center justify-center bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-5 flex-col bg-primary w-80  p-4 m-6 shadow-lg text-[#73e7e7] '>
-                <form onSubmit={add} className=" flex" >
+            <div className='flex items-center justify-center bg-[#171717] z-[10]  absolute -right-5 flex-col bg-primary w-80  p-4 m-6 shadow-lg text-[#e5e6e6] '>
+                <form onSubmit={add} className="flex gap-3" >
                     <input
                         type="text"
-                        className={`bg-[#171717] w-[13.5rem] text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1 text-[#73e7e7] m-1 px-4 `}
+                        className={` w-[12.5rem] text-sm border-b-1 border-dotted rounded-xl border-[#73e7e7] h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none  text-[#e5e6e6] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -28,7 +28,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="bg-[#73e7e7] text-black font-bold text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center hover:bg-[#93e7e7] h-9 px-4 m-1"
+                        className="bg-[#e5e6e6] text-black font-bold  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
                         onClick={() => setMessage(false)}
                     >
                         Add
