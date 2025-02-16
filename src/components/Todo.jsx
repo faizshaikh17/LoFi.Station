@@ -7,20 +7,20 @@ function Todo() {
     const dispatch = useDispatch();
     const todos = useSelector((state) => state.todo.todos)
     const [todoCompleted, setTodoCompleted] = useState(null);
+    const [message, setMessage] = useState(true)
 
     const add = (e) => {
         e.preventDefault();
         dispatch(addTodo(input))
         setInput("")
     }
-
     return (
         <>
-            <div className='flex bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-5 flex-col bg-primary w-80 items-center justify-center p-4 m-6 shadow-lg text-[#73e7e7] '>
-                <form onSubmit={add} className=" flex " >
+            <div className='flex items-center justify-center bg-[#171717] z-[10] border-[#73e7e7] border-1 absolute -right-5 flex-col bg-primary w-80  p-4 m-6 shadow-lg text-[#73e7e7] '>
+                <form onSubmit={add} className=" flex" >
                     <input
                         type="text"
-                        className={`bg-[#171717] w-[13.5rem] font-bold text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1 text-[#73e7e7] m-1 px-4 `}
+                        className={`bg-[#171717] w-[13.5rem] text-sm h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none border-[#73e7e7] border-1 text-[#73e7e7] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -29,12 +29,14 @@ function Todo() {
                         type="submit"
                         disabled={!input}
                         className="bg-[#73e7e7] text-black font-bold text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center hover:bg-[#93e7e7] h-9 px-4 m-1"
+                        onClick={() => setMessage(false)}
                     >
                         Add
                     </button>
                 </form>
 
                 <ul className="space-y-2 h-48 overflow-y-auto w-full mt-4">
+                    {todos.length === 0 ? <h1 className='text-sm opacity-20'>No todos yet.</h1> : ""}
                     {todos.map((todo) => (
                         <li key={todo.id}>
                             <div className='flex justify-between items-center px-4'>
@@ -49,14 +51,13 @@ function Todo() {
                                             }
                                         }}
                                     />
-
                                     <span className={`text-[#73e7e7] text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
                                 </div>
 
-                                <div className=''>
+                                <div className='flex items-center'>
                                     <button
                                         onClick={() => dispatch(deleteTodo(todo.id))}
-                                        className="px-2 h-9 hover:bg-[#73e7e7] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
+                                        className="flex justify-center items-center h-9 w-9 hover:bg-[#e5e6e6] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
