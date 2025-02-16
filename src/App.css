@@ -14,6 +14,7 @@
   font-family: 'MyFont', url('/assets/fonts/Web437_IBM_VGA_9x16.woff') format('woff');
   scrollbar-width: 0;
   cursor: url('/assets/cursors/default.png'), auto;
+  user-select: none;
 }
 
 .custom-slider {

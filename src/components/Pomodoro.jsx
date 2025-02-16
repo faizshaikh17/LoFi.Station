@@ -59,7 +59,7 @@ function Pomodoro() {
           type="submit"
           ref={intervalRef}
           // disabled={loading}
-          className="hover:bg-[#e5e6e6] border-1 border-[#e5e6e6] font-extrabold hover:text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+          className={`hover:bg-[#e5e6e6] border-1 border-[#e5e6e6] font-extrabold hover:text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 ${isRunning ? 'bg-[#e5e6e6] text-[#171717]' : ""} `}
           onClick={() => handleStartTimer()}
         >
           {!isRunning ? "Start" : "Pause"}
@@ -67,7 +67,7 @@ function Pomodoro() {
         <button
           type="submit"
           // disabled={loading}
-          className="bg-[#ff4433] hover:bg-[#ff3131] font-extrabold text-black text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+          className="bg-[#ff4433] hover:bg-[#ff3131] font-extrabold text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
           onClick={() => handleReset()}
         >
           {"Reset"}
