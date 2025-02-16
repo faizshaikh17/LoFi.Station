@@ -20,7 +20,7 @@ function Todo() {
                 <form onSubmit={add} className="flex gap-3" >
                     <input
                         type="text"
-                        className={` w-[12.5rem] text-sm border-b-1 border-dotted rounded-xl border-[#73e7e7] h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none  text-[#e5e6e6] m-1 px-4 `}
+                        className={` w-[12.5rem] text-sm border-b-1 border-dotted rounded-xl border-[#f9f327] h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none  text-[#f9f327] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -28,7 +28,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="bg-[#e5e6e6] text-black font-bold  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
+                        className="bg-[#e5e6e6] text-black font-bold border-1 border-[#f9f327]  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
                         onClick={() => setMessage(false)}
                     >
                         Add
@@ -51,7 +51,7 @@ function Todo() {
                                             }
                                         }}
                                     />
-                                    <span className={`text-[#73e7e7] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
+                                    <span className={`text-[#f9f327] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
                                 </div>
 
                                 <div className='flex items-center'>
