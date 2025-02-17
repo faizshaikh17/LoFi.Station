@@ -50,16 +50,16 @@ function Pomodoro() {
   return (
     <div className='flex bg-[#171717] z-[10] font-mono text-white absolute -right-15 flex-col bg-primary w-55 items-center justify-center m-6 shadow-lg gap-1'>
       <div className='flex justify-center items-center gap-3'>
-        <ChevronLeft className='text-[#f9f327]' size={20} onClick={() => handleSubTime()} />
+        <ChevronLeft className='text-[#e5e6e6]' size={20} onClick={() => handleSubTime()} />
         <h1 className='text-[2.7rem] font-bold'>{`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}</h1>
-        <ChevronRight className='text-[#f9f327]' size={20} onClick={() => handleAddTime()} />
+        <ChevronRight className='text-[#e5e6e6]' size={20} onClick={() => handleAddTime()} />
       </div>
       <div className='flex items-center gap-5 mb-4'>
         <button
           type="submit"
           ref={intervalRef}
           // disabled={loading}
-          className={`bg-[#e5e6e6] border-1 border-[#f9f327] font-extrabold text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 ${isRunning ? 'bg-[#e5e6e6] text-[#171717]' : ""} `}
+          className={`bg-[#e5e6e6] font-extrabold text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 ${isRunning ? 'bg-[#e5e6e6] text-[#171717]' : ""} `}
           onClick={() => handleStartTimer()}
         >
           {!isRunning ? "Start" : "Pause"}

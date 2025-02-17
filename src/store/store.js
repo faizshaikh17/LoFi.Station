@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import todoSlice from '../feature/todoSlice'
 import playerSlice from '../feature/playerSlice'
 import pomodoroSlice from '../feature/pomodoroSlice';
+import inputBoxSlice from '../feature/inputBoxSlice'
 
 
 const store = configureStore({
@@ -9,6 +10,7 @@ const store = configureStore({
         todo: todoSlice,
         player: playerSlice,
         pomodoro: pomodoroSlice,
+        inputBox: inputBoxSlice
     }
 });
 
