@@ -16,7 +16,9 @@ function InputBox() {
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('nickname', dummyState)
+    if (dummyState !== "") {
+      localStorage.setItem('nickname', dummyState)
+    }
   }, [dummyState])
 
   const handleSubmit = (e) => {

@@ -12,7 +12,7 @@ const inputSlice = createSlice({
     initialState: initialStateInputBox,
     reducers: {
         name: (state, action) => {
-            state.nickname = action.payload ? action.payload : "Spartan"
+            state.nickname = action.payload !== "" ? action.payload : localStoredName
         },
         setInputToggle: (state) => {
             state.inputToggle = !state.inputToggle

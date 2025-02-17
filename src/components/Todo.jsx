@@ -44,7 +44,7 @@ function Todo() {
                                 <div className='flex items-center' >
                                     <input
                                         type="checkbox"
-                                        className='default:ring-4 h-4 w-4 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-white '
+                                        className='default:ring-4 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-white w-4 h-4 mr-2 '
                                         onClick={() => {
                                             setTodoCompleted(todo.id)
                                             if (todoCompleted === todo.id) {
@@ -52,7 +52,7 @@ function Todo() {
                                             }
                                         }}
                                     />
-                                    <span className={`text-[#f9f327] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through" : ""} `}>{todo.text}</span>
+                                    <span className={`text-[#f9f327] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through [text-decoration-color:red]" : ""} `}>{todo.text}</span>
                                 </div>
 
                                 <div className='flex items-center'>
