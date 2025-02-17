@@ -17,13 +17,15 @@ Lofi Station is your 24/7 cozy companion, a soothing online lofi radio web appli
 ### Screenshots
 
 
-![readmeBg1](https://github.com/user-attachments/assets/4974b469-6f31-497a-9d6e-a177d6734f84)
-
-![readmeBg2](https://github.com/user-attachments/assets/63a240f0-fc05-43ab-87c8-60c31428ab3d)
-
-![readmeBg3](https://github.com/user-attachments/assets/46892325-65af-4fc8-b47c-99b66807fd35)
+![Screenshot 2025-02-18 013307](https://github.com/user-attachments/assets/7b869696-652d-4459-9659-33bcd5c5c4f9)
 
 
+![readmeBg2](https://github.com/user-attachments/assets/4de127fb-caac-48b3-97aa-bef4e2f5ae9d)
+
+
+![readmeBg3](https://github.com/user-attachments/assets/8e517f91-ad18-45af-87b5-47f8a6bc8075)
+
+---
 
 ### Stream Credits
 
