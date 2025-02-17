@@ -26,7 +26,7 @@ function App() {
     >
       <div className='w-full block text-2xl'>
         <Header />
-        {/* <Player /> */}
+        <Player />
         <Footer />
       </div>
     </div>
