@@ -63,11 +63,15 @@ const playerSlice = createSlice({
         setImage: (state, action) => {
             state.image = Math.floor(Math.random() * 10) + 1
         },
+        setCurrentVideoId: (state, action) => {
+            state.currentVideoId = action.payload
+            state.isPlaying = true
+        }
     },
 });
 
 
-export const { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo, setImage } = playerSlice.actions
+export const { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo, setImage, setCurrentVideoId } = playerSlice.actions
 export default playerSlice.reducer;
 
 // https://youtu.be/xmLszyYZdiw?si=POh92y6H2EqX9CR1
