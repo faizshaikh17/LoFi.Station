@@ -18,12 +18,12 @@ function Header() {
         <header className='flex flex-wrap justify-between m-8 p-2'>
             <Card />
             <div className=''>
-                <div className='flex justify-between items-center text-[#00adb5] w-45'>
+                <div className='flex justify-between items-center text-[#00adb5] w-48'>
                     <div className="relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
-                        <Maximize2 size={22} onClick={() => (setScreenToggle((prev) => !prev), handleFullScreen())} />
+                        <Maximize2  size={24} onClick={() => (setScreenToggle((prev) => !prev), handleFullScreen())} />
                     </div>
                     <a className='hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://github.com/faizshaikh17/lofi-station" target="_blank">
-                        <Github size={24} />
+                        <Github  size={24} />
                     </a>
                     <a className='hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://x.com/iamfaizz17" target="_blank">
                         <Twitter size={24} />
@@ -33,7 +33,7 @@ function Header() {
                         {pomodoroToggle && <Pomodoro />}
                     </div>
                     <div className="relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
-                        <List size={25} onClick={() => (setTodoToggle((prev) => !prev), setPomodoroToggle(false))} />
+                        <List size={24} onClick={() => (setTodoToggle((prev) => !prev), setPomodoroToggle(false))} />
                         {todotoggle && <Todo />}
                     </div>
                 </div>
