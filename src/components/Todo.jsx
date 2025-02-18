@@ -26,7 +26,7 @@ function Todo() {
                 <form onSubmit={add} className="flex gap-3" >
                     <input
                         type="text"
-                        className={` w-[12.5rem] text-sm border-b-1 border-dotted rounded-xl border-[#f9f327] h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none  text-[#f9f327] m-1 px-4 `}
+                        className={` w-[12.5rem] text-sm border-b-1 border-[#00adb5] h-9 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none  text-[#e5e6e6] m-1 px-4 `}
                         placeholder="Enter a Todo..."
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
@@ -34,7 +34,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="bg-[#00adb5] text-black font-bold border-1 border-[#f9f327]  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
+                        className="bg-[#00adb5] opacity-80 hover:opacity-100 text-black font-bold border-1  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
                         onClick={() => setMessage(false)}
                     >
                         Add
@@ -50,7 +50,7 @@ function Todo() {
                                 <div className='flex items-center' >
                                     <input
                                         type="checkbox"
-                                        className='default:ring-4 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-white w-4 h-4 mr-2 '
+                                        className='custom-checkbox default:ring-4 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-white w-4 h-4 mr-2 '
                                         onChange={() => handleCheckbox(todo.id)}
                                         checked={todoCompleted.includes(todo.id)}
                                     />
@@ -60,7 +60,7 @@ function Todo() {
                                 <div className='flex items-center'>
                                     <button
                                         onClick={() => dispatch(deleteTodo(todo.id))}
-                                        className="flex justify-center items-center h-9 w-9 hover:bg-[#e5e6e6] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
+                                        className="flex justify-center items-center h-7 w-7 hover:bg-[#e5e6e6] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ function Todo() {
                                             viewBox="0 0 22 22"
                                             strokeWidth={1.5}
                                             stroke="red"
-                                            className="w-5 h-5"
+                                            className="w-4 h-4"
                                         >
                                             <path
                                                 strokeLinecap="round"

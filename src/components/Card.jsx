@@ -28,7 +28,7 @@ function Card() {
 
     return (
         <>
-            <div className={`flex-col justify-items-start hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#00adb5] `}>
+            <div className={`flex-col text-left justify-items-start hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#00adb5] `}>
                 <h1 className='text-xl'>Now Playing: {nowPlaying}</h1>
                 <h1 className='text-2xl h-[1.85rem]' >{time}</h1>
                 <h1 className='flex items-center text-xl' onClick={() => handleInputToggle()}>Make it happen<span className='ml-2.5 text-[#f9f327]'>{nickname}.</span></h1>

@@ -47,3 +47,47 @@
   background: #00adb5;
   border-radius: 50%;
 }
+
+
+.custom-checkbox {
+  appearance: none;
+  /* Remove default styles */
+  width: 16px;
+  /* 4px * 4 (scaled for better visibility) */
+  height: 16px;
+  /* 4px * 4 (scaled for better visibility) */
+  border: 2px solid #e5e6e6;
+  /* Border color */
+  border-radius: 4px;
+  /* Slightly rounded corners */
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.custom-checkbox:checked {
+  border-color: #e5e6e6;
+  /* Border color when checked */
+  background-color: transparent;
+  /* No background */
+}
+
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  /* Adjust to position the tick */
+  top: 1px;
+  /* Adjust to position the tick */
+  width: 5px;
+  /* Width of the tick */
+  height: 10px;
+  /* Height of the tick */
+  border: solid #f9f327;
+  /* Tick color */
+  border-width: 0 2px 2px 0;
+  /* Creates the tick shape */
+  transform: rotate(45deg);
+  /* Rotate to create the tick */
+}

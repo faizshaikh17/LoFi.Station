@@ -28,14 +28,12 @@ function InputBox() {
     dispatch(setInputToggle())
   }
 
-
-
   return (
     <>
       <div className='flex flex-col text-left justify-between bg-[#171717] z-[10] absolute left-[40%] top-[13rem] p-5 w-[24rem] h-[10rem] shadow-lg text-[#f9f327]'>
         <div className=''>
           <h1 >Nickname</h1>
-          <h1 className='text-base opacity-70' >"Bruce Wayne (or your superhero alias)"</h1>
+          <h1 className='text-sm opacity-70' >"Bruce Wayne (or your superhero alias)"</h1>
         </div>
         <form onSubmit={handleSubmit} className='flex items-end justify-between mb-1' >
           <input
