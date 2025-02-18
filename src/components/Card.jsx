@@ -34,7 +34,7 @@ function Card() {
                 <h1 className='text-xl' onClick={() => setPlaylist((prev) => !prev)}>Now Playing: {nowPlaying}</h1>
                 <h1 className='text-2xl h-[1.85rem]' >{time}</h1>
                 <h1 className='flex items-center text-xl' onClick={() => handleInputToggle()}>Make it happen<span className='ml-2.5 text-[#f9f327]'>{nickname}.</span></h1>
-                {inputToggle && <InputBox /> || playlist && <Playlist />}
+                {inputToggle && <InputBox /> || playlist && <Playlist onClose={() => setPlaylist(false)} />}
             </div>
         </>
 
