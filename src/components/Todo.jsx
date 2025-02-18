@@ -19,6 +19,11 @@ function Todo() {
         setTodoCompleted(prev => prev.includes(id) ? prev.filter(todoId => todoId !== id) : [...prev, id])
     }
 
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos))
+    }, [todos, add])
+
+    
 
     return (
         <>
