@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Footer from './Footer'
 import Visualizer from './Visualizer'
 import { togglePlayPause, setLoading, setVolume, nextVideo, previousVideo, setImage } from '../feature/playerSlice'
-import { Headphones } from 'lucide-react'
+import { Headphones, Maximize2 } from 'lucide-react'
+
 
 function Player() {
     const dispatch = useDispatch();
@@ -73,9 +74,17 @@ function Player() {
         handlePrefetchVideo();
     }, [currentVideoId])
 
+    const [screenToggle, setScreenToggle] = useState(false)
+
+    const handleFullScreen = () => {
+        !screenToggle ? document.getElementById("fullScreen").requestFullscreen() : document.exitFullscreen();
+    }
+
+
+
     return (
         <>
-            <div className='flex items-center justify-start z-[5] px-4 bottom-3 absolute w-full h-[4rem]'>
+            <div className='flex items-center justify-start z-[15] px-4 bottom-3 absolute w-full h-[4rem]'>
                 <div className='flex '>
                     <div className="video-responsive hidden">
                         {isPlaying && <iframe
@@ -109,7 +118,10 @@ function Player() {
                         >
                             {isPlaying ? "Pause" : "Play"}
                         </button>
-
+                        <button disabled={loading}
+                            className="bg-[#171717] text-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#00adb5] text-sm w-10 bg-center hover:bg-[#242525] h-9 px-2 ">
+                            <Maximize2 size={24} onClick={() => (setScreenToggle((prev) => !prev), handleFullScreen())} />
+                        </button>
                         <button
                             type="submit"
                             disabled={loading}
@@ -142,6 +154,7 @@ function Player() {
                         >
                             <span className='flex'>{"Next >>"}</span>
                         </button>
+
                     </div>
                 </div>
             </div >

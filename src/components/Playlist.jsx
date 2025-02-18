@@ -16,13 +16,13 @@ function Playlist({ onClose }) {
         <>
             {/* Transparent Overlay */}
             <div
-                className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 cursor-[url(/assets/cursors/pointer.png),_pointer]"
-            // onClick={onClose}
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[20] cursor-[url(/assets/cursors/pointer.png),_pointer]"
+            onClick={onClose}
             />
 
             {/* Playlist Container */}
             <div className="fixed cursor-[url(/assets/cursors/default.png),auto]  inset-y-0 right-0 w-full max-w-md z-50 transition-transform duration-300 translate-x-0">
-                <div className="h-full bg-black/85 backdrop-blur-xl border-l border-[#00adb5]/30 py-4 px-6 shadow-2xl">
+                <div className="h-full bg-black/85 backdrop-blur-xl border-l border-[#00adb5]/40 py-4 px-6 shadow-2xl">
                     {/* Header */}
                     <div className="flex justify-between items-center mb-4">
                         <h2 className="text-xl text-[#00adb5]">Playlist</h2>
@@ -35,11 +35,11 @@ function Playlist({ onClose }) {
                     </div>
 
                     {/* Playlist Items */}
-                    <div className="space-y-3 overflow-y-auto h-[calc(100%-1rem)]">
+                    <div className="flex flex-col items-center space-y-3 text-center overflow-y-auto h-[calc(100%-1rem)]">
                         {videoNames.map((name, index) => (
                             <button
                                 key={index}
-                                className={`w-full hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  p-3 text-left text-base flex items-center text-[#e5e6e6] bg-[#00adb5]/10 hover:bg-[#00adb5]/20 transition-all rounded-lg group`}
+                                className={`w-[95%] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  p-2.5 px-3 text-left text-base flex items-center text-[#e5e6e6] bg-[#00adb5]/10 hover:bg-[#00adb5]/20 transition-all rounded-lg group`}
                                 onClick={() => handleButton(index)}
                             >
                                 <span className="text-[#00adb5]/80 mr-3 font-mono">
