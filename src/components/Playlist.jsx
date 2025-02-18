@@ -17,7 +17,7 @@ function Playlist({ onClose }) {
             {/* Transparent Overlay */}
             <div
                 className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[20] cursor-[url(/assets/cursors/pointer.png),_pointer]"
-            onClick={onClose}
+                onClick={onClose}
             />
 
             {/* Playlist Container */}
@@ -48,7 +48,7 @@ function Playlist({ onClose }) {
                                 <span className={`${currentVideoId === index ? "text-[#00adb5] opacity-100" : ""} truncate flex-1`}>
                                     {name}
                                 </span>
-                                <div className="ml-2 w-2 h-2 bg-[#00adb5] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className={`${currentVideoId === index ? "ml-2 w-2 h-2 bg-[#00adb5] rounded-full opacity-100 transition-opacity" : ""}`} />
                             </button>
                         ))}
                     </div>
