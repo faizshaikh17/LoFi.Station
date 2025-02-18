@@ -102,7 +102,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#73e7e7] hover:bg-[#93e7e7] font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+                            className="bg-[#00adb5] opacity-85 hover:bg-[#00adb5] hover:opacity-100 font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
                             onClick={() => {
                                 handleTogglePlayPause()
                             }}
@@ -113,7 +113,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#73e7e7] font-bold text-sm bg-bottom hover:bg-[#242525] h-9 px-2  w-44"
+                            className="bg-[#171717] flex items-center justify-between hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-[#00adb5] font-bold text-sm bg-bottom hover:bg-[#242525] h-9 px-2  w-44"
                         >
                             <Headphones size={24} />
                             <input className="custom-slider bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]" type="range"
@@ -128,7 +128,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#73e7e7] text-sm w-22 bg-center  h-9 px-4 "
+                            className="bg-[#171717] hover:bg-[#242525] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#00adb5] text-sm w-22 bg-center  h-9 px-4 "
                             onClick={() => { handleVideoChange("prev"), dispatch(setImage()) }}
                         >
                             <span className='flex'>{"<< Prev"}</span>
@@ -137,7 +137,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#73e7e7] text-sm w-22 bg-center hover:bg-[#242525] h-9 px-4 "
+                            className="bg-[#171717] hover:cursor-[url(/assets/cursors/pointer.png),_pointer] font-bold text-[#00adb5] text-sm w-22 bg-center hover:bg-[#242525] h-9 px-4 "
                             onClick={() => { handleVideoChange("next"), dispatch(setImage()) }}
                         >
                             <span className='flex'>{"Next >>"}</span>

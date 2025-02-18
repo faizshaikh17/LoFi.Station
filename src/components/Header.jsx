@@ -12,7 +12,7 @@ function Header() {
     return (
         <header className='flex flex-wrap justify-between m-8 p-2'>
             <Card />
-            <div className='flex justify-between text-[#73e7e7] w-35'>
+            <div className='flex justify-between text-[#00adb5] w-35'>
                 <a className='hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://github.com/faizshaikh17/lofi-station" target="_blank">
                     <Github size={24} />
                 </a>

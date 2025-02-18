@@ -22,7 +22,7 @@
   appearance: none;
   width: 80%;
   height: 4px;
-  background: #73e7e7;
+  background: #00adb5;
   outline: none;
   opacity: 0.8;
   transition: opacity 0.2s;
@@ -37,13 +37,13 @@
   appearance: none;
   width: 14px;
   height: 14px;
-  background: #73e7e7;
+  background: #00adb5;
   border-radius: 50%;
 }
 
 .custom-slider::-moz-range-thumb {
   width: 14px;
   height: 14px;
-  background: #73e7e7;
+  background: #00adb5;
   border-radius: 50%;
 }

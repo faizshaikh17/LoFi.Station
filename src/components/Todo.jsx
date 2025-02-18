@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTodo, deleteTodo } from '../feature/todoSlice';
 
@@ -6,7 +6,7 @@ function Todo() {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
     const todos = useSelector((state) => state.todo.todos)
-    const [todoCompleted, setTodoCompleted] = useState(null);
+    const [todoCompleted, setTodoCompleted] = useState([]);
     const [message, setMessage] = useState(true)
 
     const add = (e) => {
@@ -14,6 +14,12 @@ function Todo() {
         dispatch(addTodo(input))
         setInput("")
     }
+
+    const handleCheckbox = (id) => {
+        setTodoCompleted(prev => prev.includes(id) ? prev.filter(todoId => todoId !== id) : [...prev, id])
+    }
+
+
     return (
         <>
             <div className='flex items-center justify-center bg-[#171717] z-[10]  absolute -right-5 flex-col bg-primary w-80  p-4 m-6 shadow-lg text-[#e5e6e6] '>
@@ -28,7 +34,7 @@ function Todo() {
                     <button
                         type="submit"
                         disabled={!input}
-                        className="bg-[#e5e6e6] text-black font-bold border-1 border-[#f9f327]  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
+                        className="bg-[#00adb5] text-black font-bold border-1 border-[#f9f327]  text-sm hover:cursor-[url(/assets/cursors/pointer.png),_pointer] bg-center  h-9 px-4 m-1"
                         onClick={() => setMessage(false)}
                     >
                         Add
@@ -45,14 +51,10 @@ function Todo() {
                                     <input
                                         type="checkbox"
                                         className='default:ring-4 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] text-white w-4 h-4 mr-2 '
-                                        onClick={() => {
-                                            setTodoCompleted(todo.id)
-                                            if (todoCompleted === todo.id) {
-                                                setTodoCompleted(null)
-                                            }
-                                        }}
+                                        onChange={() => handleCheckbox(todo.id)}
+                                        checked={todoCompleted.includes(todo.id)}
                                     />
-                                    <span className={`text-[#f9f327] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer]  ${todoCompleted === todo.id ? "line-through [text-decoration-color:red]" : ""} `}>{todo.text}</span>
+                                    <span className={`text-[#f9f327] text-left text-sm p-2 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ${todoCompleted.includes(todo.id) ? "line-through [text-decoration-color:red]" : ""}`}>{todo.text}</span>
                                 </div>
 
                                 <div className='flex items-center'>
