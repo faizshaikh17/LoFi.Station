@@ -6,8 +6,18 @@ function Todo() {
     const [input, setInput] = useState("");
     const dispatch = useDispatch();
     const todos = useSelector((state) => state.todo.todos)
-    const [todoCompleted, setTodoCompleted] = useState([]);
     const [message, setMessage] = useState(true)
+    const [todoCompleted, setTodoCompleted] = useState([]);
+
+    useEffect(() => {
+        const localTodoCompleted = JSON.parse(localStorage.getItem('todoCompleted')) || []
+        setTodoCompleted(localTodoCompleted)
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos))
+        localStorage.setItem('todoCompleted', JSON.stringify(todoCompleted))
+    }, [todos, todoCompleted])
 
     const add = (e) => {
         e.preventDefault();
@@ -19,11 +29,10 @@ function Todo() {
         setTodoCompleted(prev => prev.includes(id) ? prev.filter(todoId => todoId !== id) : [...prev, id])
     }
 
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos))
-    }, [todos, add])
-
-    
+    const handleDelete = (id) => {
+        dispatch(deleteTodo(id))
+        setTodoCompleted((prev) => prev.filter((todoId) => todoId !== id));
+    }
 
     return (
         <>
@@ -64,7 +73,7 @@ function Todo() {
 
                                 <div className='flex items-center'>
                                     <button
-                                        onClick={() => dispatch(deleteTodo(todo.id))}
+                                        onClick={() => handleDelete(todo.id)}
                                         className="flex justify-center items-center h-7 w-7 hover:bg-[#e5e6e6] hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
                                     >
                                         <svg
@@ -87,7 +96,7 @@ function Todo() {
                         </li>
                     ))}
                 </ul >
-            </div>
+            </div >
         </>
     )
 }
