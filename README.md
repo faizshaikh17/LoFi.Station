@@ -45,3 +45,9 @@ https://youtu.be/7J54GyI18fU?si=ttcNaVqNLr9yNTBB
 https://youtu.be/3SDBTVcBUVs?si=T0tLCQlgMxyGQulz
 https://youtu.be/J43mZ3F92T4?si=kcl0NBwH51QnkXq3
 ```
+
+### Inspiration
+
+[cafe.namishh.me](https://cafe.namishh.me)
+[lofi.cafe](https://www.lofi.cafe)
+Thanks:)
