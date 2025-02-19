@@ -43,7 +43,6 @@ const playerSlice = createSlice({
     reducers: {
         togglePlayPause: (state, action) => {
             state.isPlaying = !state.isPlaying
-            // state.loading = false
         },
         setVolume: (state, action) => {
             state.volume = action.payload;
