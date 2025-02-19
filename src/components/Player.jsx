@@ -87,7 +87,7 @@ function Player() {
             <div className='flex items-center justify-start z-[15] px-4 bottom-3 absolute w-full h-[4rem]'>
                 <div className='flex '>
                     <div className="video-responsive hidden">
-                        {isPlaying && <iframe
+                         <iframe
                             ref={playerRef}
                             width="853"
                             height="480"
@@ -96,7 +96,7 @@ function Player() {
                             allowFullScreen
                             onLoad={() => dispatch(setLoading(false))}
                             title="Embedded youtube"
-                        />}
+                        />
                     </div>
                     <div style={{ display: 'none' }} >
                         <iframe

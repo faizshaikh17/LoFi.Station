@@ -43,6 +43,7 @@ const playerSlice = createSlice({
     reducers: {
         togglePlayPause: (state, action) => {
             state.isPlaying = !state.isPlaying
+            // state.loading = false
         },
         setVolume: (state, action) => {
             state.volume = action.payload;
@@ -60,7 +61,7 @@ const playerSlice = createSlice({
         setLoading: (state, action) => {
             state.loading = action.payload
         },
-        setImage: (state, action) => {
+        setImage: (state) => {
             state.image = Math.floor(Math.random() * 10) + 1
         },
         setCurrentVideoId: (state, action) => {
