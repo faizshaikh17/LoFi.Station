@@ -33,15 +33,15 @@ function Visualizer() {
         <div className='w-11 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 flex items-end justify-center overflow-hidden'>
             <div
                 style={{ height: `${div1 * 10}%`, transition: 'height 0.1s ease-in-out' }}
-                className='w-2.5 mx-0.25 bg-[#00adb5]'
+                className='w-2.5 mx-0.25 bg-[#00adb5] hover:bg-[#00d5e0] transition-colors'
             ></div>
             <div
                 style={{ height: `${div2 * 10}%`, transition: 'height 0.1s ease-in-out' }}
-                className='w-2.5 mx-0.25 bg-[#00adb5]'
+                className='w-2.5 mx-0.25 bg-[#00adb5] hover:bg-[#00d5e0] transition-colors'
             ></div>
             <div
                 style={{ height: `${div3 * 10}%`, transition: 'height 0.1s ease-in-out' }}
-                className='w-2.5 mx-0.25 bg-[#00adb5]'
+                className='w-2.5 mx-0.25 bg-[#00adb5] hover:bg-[#00d5e0] transition-colors'
             ></div>
         </div>
     );

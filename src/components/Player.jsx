@@ -84,10 +84,10 @@ function Player() {
 
     return (
         <>
-            <div className='flex items-center justify-start z-[15] px-4 bottom-3 absolute w-full h-[4rem]'>
+            <div className='flex items-center justify-start z-[15] px-4 bottom-2 absolute h-[4rem]'>
                 <div className='flex '>
                     <div className="video-responsive hidden">
-                         <iframe
+                        <iframe
                             ref={playerRef}
                             width="853"
                             height="480"
@@ -111,7 +111,7 @@ function Player() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="bg-[#00adb5] opacity-85 hover:bg-[#00adb5] hover:opacity-100 font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+                            className="bg-[#00adb5] hover:bg-[#00d5e0] transition-colors font-bold text-[#171717] text-sm w-17 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
                             onClick={() => {
                                 handleTogglePlayPause()
                             }}
