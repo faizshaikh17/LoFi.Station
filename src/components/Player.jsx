@@ -91,7 +91,7 @@ function Player() {
                             ref={playerRef}
                             width="853"
                             height="480"
-                            src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?autoplay=1&enablejsapi=1;start=10`}
+                            src={`https://www.youtube.com/embed/${videoIds[currentVideoId]}?enablejsapi=1;start=10`}
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                             onLoad={() => dispatch(setLoading(false))}
