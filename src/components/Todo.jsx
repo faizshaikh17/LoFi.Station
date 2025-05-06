@@ -59,7 +59,7 @@ function Todo() {
                 </form>
 
                 <ul className="space-y-2 h-48 overflow-y-auto w-full mt-4">
-                    {todos.length === 0 ? <h1 className='text-sm opacity-20'>No todos yet.</h1> : ""}
+                    {todos.length === 0 ? <h1 className='text-sm mt-5 opacity-20'>No todo's yet...</h1> : ""}
 
                     {todos.map((todo) => (
                         <li key={todo.id}>
