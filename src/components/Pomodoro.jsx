@@ -66,7 +66,7 @@ function Pomodoro() {
   }, [btnVisible])
 
   return (
-    <div ref={vref} className='flex z-[10] text-white absolute -left-[53.5rem] flex-col bg-primary w-80 items-center justify-center m-6 shadow-lg gap-1'>
+    <div ref={vref} className='flex z-[10] text-white absolute -left-[53.5rem] flex-col bg-primary w-80 items-center justify-center m-6 gap-1'>
       <div className='flex justify-center items-center gap-3'>
         {btnVisible && <ChevronLeft className='text-[#f9f327]' size={24} onClick={() => handleSubTime()} />}
         <h1 className='text-[5rem] text-[#16abb3] font-bold'>{`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}</h1>
