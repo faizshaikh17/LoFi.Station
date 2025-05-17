@@ -48,7 +48,7 @@ function Pomodoro() {
   const seconds = (timeLeft % 60)
 
   return (
-    <div className='flex bg-[#171717] z-[10] font-mono text-white absolute -right-15 flex-col bg-primary w-55 items-center justify-center m-6 shadow-lg gap-1'>
+    <div className='flex bg-[#171717] z-[10] font-mono text-white absolute -left-[50rem] flex-col bg-primary w-55 items-center justify-center m-6 shadow-lg gap-1'>
       <div className='flex justify-center items-center gap-3'>
         <ChevronLeft className='text-[#f9f327]' size={20} onClick={() => handleSubTime()} />
         <h1 className='text-[2.7rem] font-bold'>{`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}</h1>
