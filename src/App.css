@@ -17,6 +17,10 @@
   user-select: none;
 }
 
+.font{
+  font-family: 'MyFont', url('/assets/fonts/Web437_IBM_VGA_9x16.woff') format('woff');
+}
+
 .custom-slider {
   -webkit-appearance: none;
   appearance: none;

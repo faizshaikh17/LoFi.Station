@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useDispatch, useSelector } from 'react-redux';
 import { addTime, subTime, startTimer, pauseTimer, tick, reset } from '../feature/pomodoroSlice'
@@ -46,20 +46,38 @@ function Pomodoro() {
 
   const minutes = Math.floor(timeLeft / 60)
   const seconds = (timeLeft % 60)
+  const [btnVisible, setBtnVisible] = useState(false)
+  const vref = useRef(null)
+
+  useEffect(() => {
+    const onEnter = () => {
+      setBtnVisible(true)
+    }
+    const onLeave = () => {
+      setBtnVisible(false)
+    }
+    const pomo = vref.current
+    pomo.addEventListener('mouseenter', onEnter)
+    pomo.addEventListener('mouseleave', onLeave)
+    return () => {
+      pomo.removeEventListener('mouseenter', onEnter)
+      pomo.removeEventListener('mouseleave', onLeave)
+    }
+  }, [btnVisible])
 
   return (
-    <div className='flex bg-[#171717] z-[10] font-mono text-white absolute -left-[50rem] flex-col bg-primary w-55 items-center justify-center m-6 shadow-lg gap-1'>
+    <div ref={vref} className='flex   backdrop-blur-xs z-[10] text-white absolute -left-[53.5rem] flex-col bg-primary w-80 items-center justify-center m-6 shadow-lg gap-1'>
       <div className='flex justify-center items-center gap-3'>
-        <ChevronLeft className='text-[#f9f327]' size={20} onClick={() => handleSubTime()} />
-        <h1 className='text-[2.7rem] font-bold'>{`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}</h1>
-        <ChevronRight className='text-[#f9f327]' size={20} onClick={() => handleAddTime()} />
+        {btnVisible && <ChevronLeft className='text-[#f9f327]' size={24} onClick={() => handleSubTime()} />}
+        <h1 className='text-[5rem] text-[#16abb3] font-bold'>{`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}</h1>
+        {btnVisible && <ChevronRight className='text-[#f9f327]' size={24} onClick={() => handleAddTime()} />}
       </div>
-      <div className='flex items-center gap-5 mb-4'>
+      <div className={`${btnVisible ? 'flex' : 'hidden'} items-center gap-6 mb-4`}>
         <button
           type="submit"
           ref={intervalRef}
           // disabled={loading}
-          className={`bg-[#e5e6e6] hover:bg-white transition-colors font-extrabold text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 ${isRunning ? 'bg-[#e5e6e6] text-[#171717]' : ""} `}
+          className={`bg-[#e5e6e6]  hover:bg-white transition-colors font-extrabold text-[#171717] text-sm w-30 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 ${isRunning ? 'bg-[#e5e6e6] text-[#171717]' : ""} `}
           onClick={() => handleStartTimer()}
         >
           {!isRunning ? "Start" : "Pause"}
@@ -67,7 +85,7 @@ function Pomodoro() {
         <button
           type="submit"
           // disabled={loading}
-          className="bg-[#ff4433] hover:bg-[#ff3131] transition-colors font-extrabold text-[#171717] text-sm w-18 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
+          className="bg-[#ff4433] hover:bg-[#ff3131] transition-colors font-extrabold text-[#171717] text-sm w-30 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
           onClick={() => handleReset()}
         >
           {"Reset"}
