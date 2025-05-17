@@ -10,9 +10,9 @@ function Header() {
 
 
     return (
-        <header className='flex flex-wrap justify-between m-8 p-2'>
+        <header className='flex flex-wrap  justify-between m-8 p-2'>
             <Card />
-            <div className=''>
+            <div className='relative'>
                 <div className='flex justify-between items-center w-38'>
                     <a className='text-[#00adb5] hover:text-[#00d5e0] transition-colors hover:cursor-[url(/assets/cursors/pointer.png),_pointer]' href="https://github.com/faizshaikh17/lofi-station" target="_blank">
                         <Github size={24} />
@@ -22,7 +22,14 @@ function Header() {
                     </a>
                     <div className="text-[#00adb5] hover:text-[#00d5e0] transition-colors relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
                         <Clock size={24} onClick={() => (setPomodoroToggle((prev) => !prev), setTodoToggle(false))} />
-                        {pomodoroToggle && <Pomodoro />}
+                        {pomodoroToggle && (
+                            <div className="fixed inset-0 z-50 flex top-15 justify-center    pointer-events-none">
+                                <div className="pointer-events-auto">
+                                    <Pomodoro />
+                                </div>
+                            </div>
+                        )}
+
                     </div>
                     <div className="text-[#00adb5] hover:text-[#00d5e0] transition-colors relative hover:cursor-[url(/assets/cursors/pointer.png),_pointer] ">
                         <List size={24} onClick={() => (setTodoToggle((prev) => !prev), setPomodoroToggle(false))} />
