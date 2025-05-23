@@ -31,25 +31,27 @@ function InputBox() {
     <>
       {/* Added backdrop div */}
       <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9]"></div>
-      
+
       {/* Modified container classes */}
-      <div className='flex flex-col inset-0 backdrop-blur-sm text-left justify-between bg-[#171717]/90 z-[10] absolute left-[40%] top-[13rem] p-5 w-[24rem] h-[10rem] text-[#f9f327] border border-[#f9f327]/20 shadow-2xl'>
-        <div className='text-[#f9f327] hover:text-[#f9f100] transition-colors'>
-          <h1>Nickname</h1>
-          <h1 className='text-[0.97rem] opacity-70'>"Bruce Wayne (or your superhero alias)"</h1>
+      <div className='fixed inset-0 flex items-center justify-center z-10'>
+        <div className='flex flex-col inset-0 backdrop-blur-sm text-left justify-between bg-[#171717]/90 z-[10] p-5 w-[24rem] h-[10rem] text-[#f9f327] border border-[#f9f327]/20 shadow-2xl'>
+          <div className='text-[#f9f327] hover:text-[#f9f100] transition-colors'>
+            <h1>Nickname</h1>
+            <h1 className='text-[0.97rem] opacity-70'>"Bruce Wayne (or your superhero alias)"</h1>
+          </div>
+          <form onSubmit={handleSubmit} className='flex items-end justify-between mb-1'>
+            <input
+              type="text"
+              className={`w-[12rem] text-base border-b-1 border-dotted border-[#f9f327] h-7 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none px-1 bg-transparent`}
+              placeholder="Cpt. Jack Sparrow"
+              value={dummyState}
+              onChange={(e) => setDummyState(e.target.value)}
+            />
+            <button type="submit">
+              <X size={20} />
+            </button>
+          </form>
         </div>
-        <form onSubmit={handleSubmit} className='flex items-end justify-between mb-1'>
-          <input
-            type="text"
-            className={`w-[12rem] text-base border-b-1 border-dotted border-[#f9f327] h-7 hover:cursor-[url(/assets/cursors/pointer.png),_pointer] focus-visible:outline-none px-1 bg-transparent`}
-            placeholder="Cpt. Jack Sparrow"
-            value={dummyState}
-            onChange={(e) => setDummyState(e.target.value)}
-          />
-          <button type="submit">
-            <X size={20} />
-          </button>
-        </form>
       </div>
     </>
   )
