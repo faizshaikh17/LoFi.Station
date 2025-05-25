@@ -58,7 +58,7 @@ function Todo() {
                     </button>
                 </form>
 
-                <ul className="space-y-2 h-48 overflow-y-auto w-full mt-4">
+                <ul className="space-y-2 min-h-48 overflow-y-auto w-full mt-4">
                     {todos.length === 0 ? <h1 className='text-sm mt-5 opacity-20'>No todo's yet...</h1> : ""}
 
                     {todos.map((todo) => (
