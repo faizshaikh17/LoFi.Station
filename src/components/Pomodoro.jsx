@@ -2,38 +2,40 @@ import React, { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useDispatch, useSelector } from 'react-redux';
 import { addTime, subTime, startTimer, pauseTimer, tick, reset } from '../feature/pomodoroSlice'
+
 function Pomodoro() {
   const { workDuration, breakDuration, timeLeft, isRunning, isWorkInterval } = useSelector((state) => state.pomodoro)
   const dispatch = useDispatch();
   const intervalRef = useRef(null)
+  const [btnVisible, setBtnVisible] = useState(false)
+  const vref = useRef(null)
 
   const tickInterval = () => {
     if (intervalRef.current) clearInterval(intervalRef.current)
     intervalRef.current = setInterval(() => {
       dispatch(tick())
-    }, 1000);
+    }, 1000)
   }
 
   const handleStartTimer = () => {
     if (!isRunning) {
       dispatch(startTimer())
-      tickInterval();
-    }
-    else {
-      dispatch(pauseTimer());
+      tickInterval()
+    } else {
+      dispatch(pauseTimer())
       clearInterval(intervalRef.current)
     }
   }
 
   const handleAddTime = () => {
     if (!isRunning) {
-      dispatch(addTime());
+      dispatch(addTime())
     }
   }
 
   const handleSubTime = () => {
     if (!isRunning) {
-      dispatch(subTime());
+      dispatch(subTime())
     }
   }
 
@@ -42,20 +44,12 @@ function Pomodoro() {
     dispatch(reset())
   }
 
-
-
   const minutes = Math.floor(timeLeft / 60)
-  const seconds = (timeLeft % 60)
-  const [btnVisible, setBtnVisible] = useState(false)
-  const vref = useRef(null)
+  const seconds = timeLeft % 60
 
   useEffect(() => {
-    const onEnter = () => {
-      setBtnVisible(true)
-    }
-    const onLeave = () => {
-      setBtnVisible(false)
-    }
+    const onEnter = () => setBtnVisible(true)
+    const onLeave = () => setBtnVisible(false)
     const pomo = vref.current
     pomo.addEventListener('mouseenter', onEnter)
     pomo.addEventListener('mouseleave', onLeave)
@@ -66,29 +60,42 @@ function Pomodoro() {
   }, [btnVisible])
 
   return (
-    <div ref={vref} className='flex z-[10] text-white right-[] flex-col bg-primary w-80 items-center justify-center m-6'>
-      <div className='flex justify-center items-center gap-3'>
-        {btnVisible && <ChevronLeft className='text-[#f9f327]' size={24} onClick={() => handleSubTime()} />}
-        <h1 className='text-[5rem] text-[#16abb3] font-bold'>{`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}</h1>
-        {btnVisible && <ChevronRight className='text-[#f9f327]' size={24} onClick={() => handleAddTime()} />}
+    <div
+      ref={vref}
+      className="z-10 text-white flex flex-col bg-primary items-center justify-center sm:w-80 w-full sm:rounded-md rounded-none p-4"
+    >
+      <div className="flex items-center justify-center gap-3">
+        {btnVisible && (
+          <ChevronLeft
+            className="text-[#f9f327]"
+            size={24}
+            onClick={handleSubTime}
+          />
+        )}
+        <h1 className="font-bold text-[#16abb3] text-[3rem] sm:text-[5rem]">
+          {`${minutes < 10 ? 0 : ""}${minutes}:${seconds < 10 ? 0 : ""}${seconds}`}
+        </h1>
+        {btnVisible && (
+          <ChevronRight
+            className="text-[#f9f327]"
+            size={24}
+            onClick={handleAddTime}
+          />
+        )}
       </div>
-      <div className={`${btnVisible ? 'flex' : 'hidden'} items-center gap-6 mb-4`}>
+      <div className={`${btnVisible ? 'flex' : 'hidden'} flex-col sm:flex-row gap-4 sm:gap-6 mt-4`}>
         <button
-          type="submit"
           ref={intervalRef}
-          // disabled={loading}
-          className={`bg-[#e5e6e6]  hover:bg-white transition-colors font-extrabold text-[#171717] text-sm w-30 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 ${isRunning ? 'bg-[#e5e6e6] text-[#171717]' : ""} `}
-          onClick={() => handleStartTimer()}
+          className={`h-9 px-4 w-full sm:w-auto text-sm font-extrabold transition-colors bg-[#e5e6e6] text-[#171717] hover:bg-white bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer]`}
+          onClick={handleStartTimer}
         >
           {!isRunning ? "Start" : "Pause"}
         </button>
         <button
-          type="submit"
-          // disabled={loading}
-          className="bg-[#ff4433] hover:bg-[#ff3131] transition-colors font-extrabold text-[#171717] text-sm w-30 bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer] h-9 px-4 "
-          onClick={() => handleReset()}
+          className="h-9 px-4 w-full sm:w-auto text-sm font-extrabold transition-colors bg-[#ff4433] text-[#171717] hover:bg-[#ff3131] bg-center hover:cursor-[url(/assets/cursors/pointer.png),_pointer]"
+          onClick={handleReset}
         >
-          {"Reset"}
+          Reset
         </button>
       </div>
     </div>

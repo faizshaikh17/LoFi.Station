@@ -39,7 +39,7 @@ function Todo() {
             {/* Added backdrop div */}
       {/* <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9]"></div> */}
       
-            <div className='flex items-center justify-center bg-[#171717] z-[10]  absolute -right-5 flex-col bg-primary w-80  p-4 m-6 shadow-lg text-[#e5e6e6] '>
+            <div className='flex items-center justify-center bg-[#171717] z-[10]  absolute -right-28 md:-right-5 flex-col bg-primary w-80  p-4 m-6 shadow-lg text-[#e5e6e6] '>
                 <form onSubmit={add} className="flex gap-3" >
                     <input
                         type="text"
