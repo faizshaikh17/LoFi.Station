@@ -30,11 +30,11 @@ function InputBox() {
   return (
     <>
       {/* Added backdrop div */}
-      <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[9]"></div>
+      <div className="fixed inset-0 backdrop-blur-sm z-[9]"></div>
 
       {/* Modified container classes */}
-      <div className='fixed inset-0 flex items-center justify-center z-10'>
-        <div className='flex flex-col inset-0 backdrop-blur-sm text-left justify-between bg-[#171717]/90 z-[15] p-5 w-[24rem] h-[10rem] text-[#f9f327] border border-[#f9f327]/20 shadow-2xl'>
+      <div className='fixed inset-0 flex bg-black/40 items-center justify-center z-10'>
+        <div className='flex flex-col inset-0 backdrop-blur-sm text-left justify-between bg-[#171717]/90 z-15 p-5 w-[24rem] h-[10rem] text-[#f9f327] border border-[#f9f327]/20 shadow-2xl'>
           <div className='text-[#f9f327] hover:text-[#f9f100] transition-colors'>
             <h1>Nickname</h1>
             <h1 className='text-[0.97rem] opacity-70'>"Bruce Wayne (or your superhero alias)"</h1>
